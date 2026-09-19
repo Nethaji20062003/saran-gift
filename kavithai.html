@@ -582,34 +582,10 @@ body{
 
 /* =========================================
    MEMORY PHOTO
+   FULL PHOTO VISIBLE
 ========================================= */
 
 .memory-photo{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-    border-radius:18px;
-
-    transition:
-        transform .5s ease;
-
-}
-
-
-/* =========================================
-   IMPORTANT FIX
-   KAVITHAI 1 & 3
-   FULL PHOTO + FACE VISIBLE
-========================================= */
-
-.memory-photo.k1,
-.memory-photo.k3{
 
     width:100%;
 
@@ -619,12 +595,18 @@ body{
 
     object-position:center center;
 
-    background:
-        rgba(10,8,30,.35);
+    display:block;
+
+    border-radius:18px;
 
     padding:8px;
 
-    border-radius:20px;
+    background:
+        rgba(10,8,30,.35);
+
+    transform:none !important;
+
+    transition:none !important;
 
 }
 
@@ -634,6 +616,12 @@ body{
 ========================================= */
 
 .memory-photo.k1{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
 
     object-position:center center;
 
@@ -646,18 +634,25 @@ body{
 
 .memory-photo.k3{
 
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
     object-position:center center;
 
 }
 
 
 /* =========================================
-   HOVER
+   PHOTO HOVER
+   DISABLED TO PREVENT CROP
 ========================================= */
 
 .memory-photo:hover{
 
-    transform:scale(1.03);
+    transform:none !important;
 
 }
 
@@ -850,7 +845,7 @@ body{
 
 /* =========================================
    KAVITHAI 2 PHOTO
-   FACE FULLY VISIBLE
+   FULL PHOTO VISIBLE
 ========================================= */
 
 .photo-inside img{
@@ -1683,7 +1678,11 @@ body{
 
     }
 
-    /* Mobile face visibility fix */
+    /* =====================================
+       MOBILE FULL PHOTO FIX
+    ===================================== */
+
+    .memory-photo,
     .memory-photo.k1,
     .memory-photo.k3{
 
@@ -1697,9 +1696,21 @@ body{
 
         padding:5px;
 
+        transform:none !important;
+
+    }
+
+    .memory-photo:hover{
+
+        transform:none !important;
+
     }
 
     .photo-inside img{
+
+        width:100%;
+
+        height:100%;
 
         object-fit:contain;
 
@@ -1836,7 +1847,8 @@ body{
 
     <div class="visual">
 
-        <img src="./kavithai1.jpeg">
+        <img
+            src="./kavithai1.jpeg"
             alt="Kavithai Memory 1"
             class="memory-photo k1"
         >
@@ -1860,7 +1872,8 @@ body{
 
             <div class="photo-inside">
 
-                <img src="./kavithai2.jpeg">
+                <img
+                    src="./kavithai2.jpeg"
                     alt="Kavithai Memory 2"
                 >
 
@@ -2000,7 +2013,8 @@ body{
 
     <div class="visual">
 
-        <img src="./kavithai3.jpeg">
+        <img
+            src="./kavithai3.jpeg"
             alt="Kavithai Memory 3"
             class="memory-photo k3"
         >
@@ -2020,7 +2034,8 @@ body{
 
     <div class="visual">
 
-       <img src="./kavithai4.jpeg">
+        <img
+            src="./kavithai4.jpeg"
             alt="Kavithai Memory 4"
             class="memory-photo"
         >
@@ -2157,7 +2172,8 @@ body{
 
     <div class="visual">
 
-        <img src="./kavithai5.jpeg">
+        <img
+            src="./kavithai5.jpeg"
             alt="Kavithai Memory 5"
             class="memory-photo"
         >
