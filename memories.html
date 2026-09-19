@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Little Memories</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    font-family:'Poppins',sans-serif;
+
+    color:#4d3040;
+
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            #ffe7ef,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #f8c8d9,
+            transparent 30%
+        ),
+        #fff4f7;
+
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-5;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.5),
+            transparent 45%
+        );
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-30px;
+
+    font-size:var(--size);
+
+    color:#e88aaa;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    animation:
+        floatHeart
+        var(--duration)
+        linear
+        infinite;
+
+    animation-delay:var(--delay);
+
+    z-index:1;
+
+}
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:0;
+
+    }
+
+    12%{
+        opacity:.45;
+    }
+
+    50%{
+
+        transform:
+            translateY(-50vh)
+            translateX(var(--move))
+            rotate(15deg)
+            scale(1);
+
+    }
+
+    85%{
+        opacity:.25;
+    }
+
+    100%{
+
+        transform:
+            translateY(-115vh)
+            translateX(calc(var(--move) * -1))
+            rotate(-15deg)
+            scale(.8);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:
+        70px 20px
+        100px;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:
+        0 auto
+        80px;
+
+    animation:
+        headerReveal
+        1.2s
+        ease;
+
+}
+
+@keyframes headerReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.mini-title{
+
+    font-size:10px;
+
+    letter-spacing:6px;
+
+    font-weight:600;
+
+    color:#b55d7d;
+
+    margin-bottom:18px;
+
+}
+
+
+h1{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            55px,
+            9vw,
+            90px
+        );
+
+    line-height:.9;
+
+    color:#66354b;
+
+    margin-bottom:22px;
+
+}
+
+
+.intro{
+
+    max-width:550px;
+
+    margin:auto;
+
+    font-size:13px;
+
+    line-height:2;
+
+    color:#806070;
+
+}
+
+
+/* =========================
+   DECORATION
+========================= */
+
+.header-decoration{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+.header-decoration span{
+
+    width:75px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d995ac
+        );
+
+}
+
+.header-decoration span:last-child{
+
+    background:
+        linear-gradient(
+            90deg,
+            #d995ac,
+            transparent
+        );
+
+}
+
+.header-decoration b{
+
+    color:#d46e94;
+
+    font-size:12px;
+
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+
+    position:relative;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+/* CENTER LINE */
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    bottom:0;
+
+    left:50%;
+
+    width:2px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #e3a3b8 8%,
+            #e3a3b8 92%,
+            transparent
+        );
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* =========================
+   MEMORY ITEM
+========================= */
+
+.memory{
+
+    width:50%;
+
+    padding:25px 45px;
+
+    position:relative;
+
+    opacity:0;
+
+    transform:
+        translateY(50px);
+
+    animation:
+        memoryReveal
+        .9s
+        ease
+        forwards;
+
+}
+
+.memory:nth-child(1){
+    animation-delay:.3s;
+}
+
+.memory:nth-child(2){
+    animation-delay:.6s;
+}
+
+.memory:nth-child(3){
+    animation-delay:.9s;
+}
+
+.memory:nth-child(4){
+    animation-delay:1.2s;
+}
+
+@keyframes memoryReveal{
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.memory.left{
+
+    text-align:right;
+
+}
+
+.memory.right{
+
+    margin-left:50%;
+
+    text-align:left;
+
+}
+
+
+/* =========================
+   TIMELINE DOT
+========================= */
+
+.memory::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:48px;
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:
+        4px solid
+        #d87598;
+
+    box-shadow:
+        0 0 0 6px
+        rgba(216,117,152,.12),
+
+        0 0 18px
+        rgba(216,117,152,.25);
+
+    z-index:3;
+
+}
+
+.memory.left::after{
+
+    right:-8px;
+
+}
+
+.memory.right::after{
+
+    left:-8px;
+
+}
+
+
+/* =========================
+   MEMORY CARD
+========================= */
+
+.card{
+
+    position:relative;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    border:
+        1px solid
+        rgba(190,115,145,.18);
+
+    box-shadow:
+
+        0 18px 45px
+        rgba(120,65,90,.10);
+
+    backdrop-filter:
+        blur(12px);
+
+    transition:
+        .45s ease;
+
+}
+
+
+/* PAPER EFFECT */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:45px;
+    height:45px;
+
+    top:-12px;
+    right:25px;
+
+    background:
+        rgba(255,218,228,.7);
+
+    transform:
+        rotate(7deg);
+
+    z-index:-1;
+
+}
+
+
+/* HOVER */
+
+.card:hover{
+
+    transform:
+        translateY(-8px)
+        rotate(-1deg);
+
+    box-shadow:
+
+        0 25px 55px
+        rgba(120,65,90,.16);
+
+}
+
+
+/* =========================
+   MEMORY NUMBER
+========================= */
+
+.number{
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:#c36c8c;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+}
+
+
+/* =========================
+   MEMORY ICON
+========================= */
+
+.icon{
+
+    font-size:32px;
+
+    margin-bottom:12px;
+
+    display:inline-block;
+
+    animation:
+        tinyFloat
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes tinyFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+
+}
+
+
+/* =========================
+   CARD TITLE
+========================= */
+
+.card h2{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:31px;
+
+    color:#64364b;
+
+    margin-bottom:10px;
+
+}
+
+
+/* =========================
+   CARD TEXT
+========================= */
+
+.card p{
+
+    font-size:12px;
+
+    line-height:1.9;
+
+    color:#806070;
+
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-placeholder{
+
+    width:100%;
+
+    height:220px;
+
+    margin-top:20px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe8f0,
+            #f9d0df
+        );
+
+    border:
+        1px dashed
+        #d98ca7;
+
+    position:relative;
+
+}
+
+
+.photo-placeholder img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:18px;
+
+    transition:
+        transform .5s ease;
+
+}
+
+
+/* =========================
+   MEMORY 01 PHOTO POSITION
+========================= */
+
+.memory:nth-child(1) .photo-placeholder img{
+
+    object-position:center 25%;
+
+}
+
+
+/* =========================
+   MEMORY 02 PHOTO POSITION
+========================= */
+
+.memory:nth-child(2) .photo-placeholder img{
+
+    object-position:center 25%;
+
+}
+
+
+/* =========================
+   MEMORY 03 PHOTO POSITION
+========================= */
+
+.memory:nth-child(3) .photo-placeholder img{
+
+    object-position:center center;
+
+}
+
+
+/* =========================
+   MEMORY 04 PHOTO POSITION
+========================= */
+
+.memory:nth-child(4) .photo-placeholder img{
+
+    object-position:center center;
+
+}
+
+
+/* PHOTO HOVER */
+
+.photo-placeholder:hover img{
+
+    transform:
+        scale(1.05);
+
+}
+
+
+/* =========================
+   BOTTOM MESSAGE
+========================= */
+
+.closing{
+
+    max-width:650px;
+
+    margin:
+        100px auto
+        0;
+
+    text-align:center;
+
+    padding:45px 25px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border:
+        1px solid
+        rgba(190,115,145,.16);
+
+    box-shadow:
+        0 20px 50px
+        rgba(120,65,90,.08);
+
+}
+
+
+.closing-icon{
+
+    font-size:30px;
+
+    margin-bottom:15px;
+
+}
+
+
+.closing h2{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:42px;
+
+    color:#64364b;
+
+    margin-bottom:12px;
+
+}
+
+
+.closing p{
+
+    font-size:12px;
+
+    line-height:2;
+
+    color:#806070;
+
+}
+
+
+/* =========================
+   NEXT BUTTON
+========================= */
+
+.next{
+
+    display:inline-block;
+
+    margin-top:28px;
+
+    padding:
+        14px 30px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c7688d,
+            #a84e73
+        );
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    font-weight:600;
+
+    box-shadow:
+        0 10px 25px
+        rgba(168,78,115,.22);
+
+    transition:.35s;
+
+}
+
+.next:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(168,78,115,.30);
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .page{
+
+        padding:
+            55px 15px
+            70px;
+
+    }
+
+
+    .header{
+
+        margin-bottom:55px;
+
+    }
+
+
+    .timeline::before{
+
+        left:18px;
+
+    }
+
+
+    .memory,
+    .memory.right{
+
+        width:100%;
+
+        margin-left:0;
+
+        padding:
+            20px
+            10px
+            35px
+            50px;
+
+        text-align:left;
+
+    }
+
+
+    .memory.left{
+
+        text-align:left;
+
+    }
+
+
+    .memory::after,
+    .memory.left::after,
+    .memory.right::after{
+
+        left:10px;
+
+    }
+
+
+    .card{
+
+        padding:24px;
+
+    }
+
+
+    .card h2{
+
+        font-size:27px;
+
+    }
+
+
+    .photo-placeholder{
+
+        height:190px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="background"></div>
+
+
+<!-- =========================
+     FLOATING HEARTS
+========================= -->
+
+<script>
+
+for(let i=0;i<35;i++){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML =
+        Math.random() > .5
+        ? "♥"
+        : "♡";
+
+    heart.style.left =
+        Math.random()*100+"vw";
+
+    heart.style.setProperty(
+        "--size",
+        (8+Math.random()*14)+"px"
+    );
+
+    heart.style.setProperty(
+        "--duration",
+        (8+Math.random()*8)+"s"
+    );
+
+    heart.style.setProperty(
+        "--delay",
+        (-Math.random()*15)+"s"
+    );
+
+    heart.style.setProperty(
+        "--move",
+        (-70+Math.random()*140)+"px"
+    );
+
+    document.body.appendChild(heart);
+
+}
+
+</script>
+
+
+<!-- =========================
+     PAGE
+========================= -->
+
+<main class="page">
+
+
+    <!-- HEADER -->
+
+    <section class="header">
+
+        <div class="mini-title">
+
+            ✦ A LITTLE COLLECTION OF MOMENTS ✦
+
+        </div>
+
+
+        <h1>
+
+            Little Memories
+
+        </h1>
+
+
+        <p class="intro">
+
+            Some moments may look small,
+            but they quietly become the memories
+            we remember with a smile.
+
+        </p>
+
+
+        <div class="header-decoration">
+
+            <span></span>
+
+            <b>♥</b>
+
+            <span></span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TIMELINE
+    ========================= -->
+
+    <section class="timeline">
+
+
+        <!-- MEMORY 01 -->
+
+        <div class="memory left">
+
+            <div class="card">
+
+                <div class="number">
+
+                    MEMORY 01
+
+                </div>
+
+
+                <div class="icon">
+
+                    🌸
+
+                </div>
+
+
+                <h2>
+
+                    A New Beginning
+
+                </h2>
+
+
+                <p>
+
+                    Every beautiful journey begins
+                    with a simple first step.
+                    This was the beginning of
+                    a new chapter.
+
+                </p>
+
+
+                <div class="photo-placeholder">
+
+                    <img
+                        src="./images/memory1.jpeg"
+                        alt="Memory 1"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEMORY 02 -->
+
+        <div class="memory right">
+
+            <div class="card">
+
+                <div class="number">
+
+                    MEMORY 02
+
+                </div>
+
+
+                <div class="icon">
+
+                    🎓
+
+                </div>
+
+
+                <h2>
+
+                    College Days
+
+                </h2>
+
+
+                <p>
+
+                    New places, new experiences,
+                    new people and countless little
+                    moments that slowly became
+                    part of the journey.
+
+                </p>
+
+
+                <div class="photo-placeholder">
+
+                    <img
+                        src="./images/memory2.jpeg"
+                        alt="Memory 2"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEMORY 03 -->
+
+        <div class="memory left">
+
+            <div class="card">
+
+                <div class="number">
+
+                    MEMORY 03
+
+                </div>
+
+
+                <div class="icon">
+
+                    ✨
+
+                </div>
+
+
+                <h2>
+
+                    Beautiful Moments
+
+                </h2>
+
+
+                <p>
+
+                    The best memories are often
+                    made from ordinary moments
+                    that become special because
+                    of the people in them.
+
+                </p>
+
+
+                <div class="photo-placeholder">
+
+                    <img
+                        src="./images/memory3.jpeg"
+                        alt="Memory 3"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MEMORY 04 -->
+
+        <div class="memory right">
+
+            <div class="card">
+
+                <div class="number">
+
+                    MEMORY 04
+
+                </div>
+
+
+                <div class="icon">
+
+                    💗
+
+                </div>
+
+
+                <h2>
+
+                    More To Come
+
+                </h2>
+
+
+                <p>
+
+                    This isn't the end of the
+                    memory book.
+
+                    There are still many beautiful
+                    moments waiting to be written.
+
+                </p>
+
+
+                <div class="photo-placeholder">
+
+                    <img
+                        src="./images/memory4.jpeg"
+                        alt="Memory 4"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         CLOSING
+    ========================= -->
+
+    <section class="closing">
+
+
+        <div class="closing-icon">
+
+            💕✨
+
+        </div>
+
+
+        <h2>
+
+            The Story Continues...
+
+        </h2>
+
+
+        <p>
+
+            A few memories have been placed here
+            for now.
+
+            <br>
+
+            The rest will slowly become part of
+            this little collection.
+
+        </p>
+
+
+        <!-- =========================
+             NEXT → KAVITHAI
+        ========================= -->
+
+        <a
+            href="kavithai.html"
+            class="next"
+        >
+
+            CONTINUE TO KAVITHAI&nbsp; →
+
+        </a>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>

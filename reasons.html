@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reasons | Saranya Sri</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+    color:#5b3548;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #fff8fb,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #ffe0ed,
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #fffafd,
+            #ffe5ef,
+            #fff3f8
+        );
+}
+
+
+/* =====================================================
+   BACKGROUND GLOW
+===================================================== */
+
+.glow{
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    pointer-events:none;
+    filter:blur(35px);
+    opacity:.35;
+    z-index:0;
+}
+
+.glow.one{
+    top:-100px;
+    left:-100px;
+    background:#ffb7d0;
+
+    animation:
+        glowOne
+        8s
+        ease-in-out
+        infinite alternate;
+}
+
+.glow.two{
+    right:-100px;
+    bottom:-100px;
+    background:#eab4ff;
+
+    animation:
+        glowTwo
+        10s
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes glowOne{
+    to{
+        transform:
+            translate(150px,100px)
+            scale(1.2);
+    }
+}
+
+@keyframes glowTwo{
+    to{
+        transform:
+            translate(-120px,-100px)
+            scale(1.2);
+    }
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    color:#ef79a4;
+    pointer-events:none;
+    opacity:0;
+    z-index:1;
+
+    animation:
+        heartFloat
+        var(--duration)
+        linear
+        infinite;
+}
+
+@keyframes heartFloat{
+
+    0%{
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:0;
+    }
+
+    12%{
+        opacity:var(--opacity);
+    }
+
+    50%{
+        transform:
+            translateY(-55vh)
+            translateX(var(--move))
+            rotate(18deg)
+            scale(1);
+    }
+
+    100%{
+        transform:
+            translateY(-120vh)
+            translateX(calc(var(--move) * -1))
+            rotate(-20deg)
+            scale(.8);
+
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main{
+    position:relative;
+    z-index:3;
+    width:100%;
+    padding:
+        65px
+        20px
+        100px;
+}
+
+.container{
+    width:100%;
+    max-width:1050px;
+    margin:auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.eyebrow{
+    text-align:center;
+    color:#b34d76;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:6px;
+    margin-bottom:16px;
+}
+
+.title{
+    text-align:center;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            58px,
+            9vw,
+            100px
+        );
+
+    line-height:.9;
+    color:#762b50;
+}
+
+.subtitle{
+    max-width:650px;
+    margin:
+        22px
+        auto
+        50px;
+
+    text-align:center;
+    color:#855d70;
+    font-size:13px;
+    line-height:2;
+}
+
+
+/* =====================================================
+   REASONS CARD
+===================================================== */
+
+.reasons-card{
+
+    position:relative;
+    overflow:hidden;
+
+    padding:
+        55px
+        35px
+        50px;
+
+    border-radius:38px;
+
+    background:
+        rgba(255,255,255,.68);
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+    box-shadow:
+        0 30px 80px
+        rgba(120,45,80,.12);
+
+    backdrop-filter:blur(20px);
+}
+
+.reasons-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    right:-170px;
+    top:-180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,181,209,.45),
+            transparent 70%
+        );
+}
+
+
+/* =====================================================
+   CARD HEADING
+===================================================== */
+
+.section-label{
+
+    text-align:center;
+
+    color:#b14d76;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    font-weight:600;
+}
+
+.section-heading{
+
+    text-align:center;
+
+    margin-top:8px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            45px,
+            7vw,
+            70px
+        );
+
+    line-height:1;
+
+    color:#702449;
+}
+
+.section-description{
+
+    max-width:650px;
+
+    margin:
+        20px
+        auto
+        40px;
+
+    text-align:center;
+
+    color:#80576a;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+
+/* =====================================================
+   REASONS GRID
+===================================================== */
+
+.reasons-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+}
+
+
+/* =====================================================
+   REASON ITEM
+===================================================== */
+
+.reason{
+
+    position:relative;
+
+    padding:
+        28px
+        18px;
+
+    border-radius:25px;
+
+    background:
+        rgba(255,255,255,.78);
+
+    border:
+        1px solid
+        rgba(226,157,183,.18);
+
+    box-shadow:
+        0 12px 30px
+        rgba(120,50,80,.07);
+
+    text-align:center;
+
+    transition:
+        .4s ease;
+
+}
+
+.reason:hover{
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 22px 40px
+        rgba(120,50,80,.13);
+}
+
+
+/* =====================================================
+   REASON ICON
+===================================================== */
+
+.reason-icon{
+
+    width:55px;
+    height:55px;
+
+    margin:
+        0
+        auto
+        15px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8b7cf,
+            #e98daf
+        );
+
+    color:#762b50;
+
+    font-size:22px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(190,80,120,.15);
+}
+
+
+.reason h3{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:26px;
+
+    color:#71294c;
+}
+
+.reason p{
+
+    margin-top:8px;
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    color:#916a7c;
+}
+
+
+/* =====================================================
+   SPECIAL QUOTE
+===================================================== */
+
+.quote-box{
+
+    margin-top:40px;
+
+    padding:
+        30px
+        20px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,236,244,.8),
+            rgba(255,255,255,.7)
+        );
+
+    text-align:center;
+}
+
+.quote{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:29px;
+
+    line-height:1.45;
+
+    color:#762b50;
+}
+
+.quote-small{
+
+    margin-top:12px;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    color:#a45c77;
+}
+
+
+/* =====================================================
+   NEXT SECTION
+===================================================== */
+
+.next-section{
+
+    margin-top:65px;
+
+    text-align:center;
+}
+
+.next-label{
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:#a06b82;
+
+    margin-bottom:15px;
+}
+
+
+/* =====================================================
+   NEXT BUTTON
+===================================================== */
+
+.next-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    padding:
+        15px
+        30px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e76fa4,
+            #ad76dd
+        );
+
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    box-shadow:
+        0 12px 30px
+        rgba(180,75,135,.22);
+
+    transition:
+        .3s ease;
+}
+
+.next-btn:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.02);
+
+    box-shadow:
+        0 18px 38px
+        rgba(180,75,135,.3);
+}
+
+
+/* =====================================================
+   BOTTOM
+===================================================== */
+
+.bottom{
+
+    margin-top:60px;
+
+    text-align:center;
+
+    color:#a06d81;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:750px){
+
+    .main{
+
+        padding:
+            45px
+            15px
+            70px;
+    }
+
+    .reasons-card{
+
+        padding:
+            40px
+            18px;
+    }
+
+    .reasons-grid{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .reason{
+
+        padding:25px 20px;
+    }
+
+    .section-heading{
+
+        font-size:48px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <div class="eyebrow">
+        LITTLE THINGS THAT MAKE HER SPECIAL
+    </div>
+
+
+    <h1 class="title">
+        Reasons
+    </h1>
+
+
+    <p class="subtitle">
+
+        Sometimes a person becomes special
+        because of all the little qualities
+        that make them who they are.
+
+    </p>
+
+
+    <!-- =================================================
+         REASONS CARD
+    ================================================== -->
+
+    <section class="reasons-card">
+
+
+        <div class="section-label">
+            WHY SHE IS SPECIAL
+        </div>
+
+
+        <div class="section-heading">
+            Little Reasons
+        </div>
+
+
+        <p class="section-description">
+
+            There are many beautiful qualities
+            that make Saranya Sri a memorable
+            and special person.
+
+        </p>
+
+
+        <!-- REASONS -->
+
+        <div class="reasons-grid">
+
+
+            <div class="reason">
+
+                <div class="reason-icon">
+                    💗
+                </div>
+
+                <h3>
+                    Caring
+                </h3>
+
+                <p>
+                    Her caring nature makes
+                    the people around her
+                    feel valued and remembered.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <div class="reason-icon">
+                    🌸
+                </div>
+
+                <h3>
+                    Cute
+                </h3>
+
+                <p>
+                    Her simple and cute nature
+                    makes ordinary moments
+                    feel a little more special.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <div class="reason-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Multi-Talented
+                </h3>
+
+                <p>
+                    She has many abilities
+                    and always has the potential
+                    to learn something new.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <div class="reason-icon">
+                    🌷
+                </div>
+
+                <h3>
+                    Kind
+                </h3>
+
+                <p>
+                    A kind heart can make
+                    even the smallest interaction
+                    meaningful.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <div class="reason-icon">
+                    🌟
+                </div>
+
+                <h3>
+                    Ambitious
+                </h3>
+
+                <p>
+                    She has a dream for her future
+                    and the ambition to work
+                    towards it.
+                </p>
+
+            </div>
+
+
+            <div class="reason">
+
+                <div class="reason-icon">
+                    🦋
+                </div>
+
+                <h3>
+                    Special
+                </h3>
+
+                <p>
+                    The combination of her qualities
+                    is what makes her journey
+                    uniquely her own.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- QUOTE -->
+
+        <div class="quote-box">
+
+            <div class="quote">
+
+                “The most beautiful qualities
+                are often the little things
+                that people remember.”
+
+            </div>
+
+
+            <div class="quote-small">
+
+                LITTLE THINGS • BEAUTIFUL MEMORIES
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         NEXT PAGE
+    ================================================== -->
+
+    <section class="next-section">
+
+        <div class="next-label">
+
+            NEXT CHAPTER • MEMORIES
+
+        </div>
+
+
+        <button
+            class="next-btn"
+            onclick="goToMemories()"
+        >
+
+            CONTINUE TO MEMORIES
+            <span>→</span>
+
+        </button>
+
+    </section>
+
+
+    <!-- BOTTOM -->
+
+    <div class="bottom">
+
+        EVERY SPECIAL STORY IS MADE OF LITTLE MOMENTS ✦
+
+    </div>
+
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+for(let i=0;i<45;i++){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "heart";
+
+
+    heart.innerHTML =
+        Math.random() > .35
+        ? "♥"
+        : "♡";
+
+
+    heart.style.left =
+        Math.random()*100+"vw";
+
+
+    heart.style.fontSize =
+        (7+Math.random()*15)+"px";
+
+
+    heart.style.setProperty(
+        "--duration",
+        (8+Math.random()*9)+"s"
+    );
+
+
+    heart.style.setProperty(
+        "--move",
+        (-80+Math.random()*160)+"px"
+    );
+
+
+    heart.style.setProperty(
+        "--opacity",
+        (.2+Math.random()*.35)
+    );
+
+
+    heart.style.animationDelay =
+        (-Math.random()*15)+"s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+}
+
+
+/* =====================================================
+   NEXT → MEMORIES
+===================================================== */
+
+function goToMemories(){
+
+    window.location.href =
+        "memories.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

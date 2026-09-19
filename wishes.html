@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Wishes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f7,
+            #f8eaff,
+            #e9ddff,
+            #ffe8f1
+        );
+
+    color:#4d3150;
+
+}
+
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+.background-glow{
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.75),
+            transparent 70%
+        );
+
+    filter:blur(15px);
+
+    pointer-events:none;
+
+    animation:
+        glowMove
+        8s
+        ease-in-out
+        infinite alternate;
+
+}
+
+.glow-one{
+
+    left:-180px;
+    top:-150px;
+
+}
+
+.glow-two{
+
+    right:-180px;
+    bottom:-180px;
+
+    animation-delay:2s;
+
+}
+
+@keyframes glowMove{
+
+    from{
+        transform:translate(0,0) scale(.9);
+    }
+
+    to{
+        transform:translate(70px,40px) scale(1.1);
+    }
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-40px;
+
+    pointer-events:none;
+
+    color:#e889b3;
+
+    opacity:.45;
+
+    animation:
+        floatHeart
+        var(--duration)
+        linear
+        infinite;
+
+    animation-delay:var(--delay);
+
+    z-index:1;
+
+}
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:0;
+
+    }
+
+    15%{
+        opacity:.45;
+    }
+
+    50%{
+
+        transform:
+            translateY(-50vh)
+            translateX(var(--move))
+            rotate(15deg)
+            scale(1);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(-115vh)
+            translateX(calc(var(--move) * -1))
+            rotate(-15deg)
+            scale(.8);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    padding:
+        55px
+        20px
+        70px;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    text-align:center;
+
+    max-width:700px;
+
+    animation:
+        headerReveal
+        1.3s
+        ease;
+
+}
+
+@keyframes headerReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.mini-title{
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:#a05b87;
+
+    font-weight:600;
+
+    margin-bottom:14px;
+
+}
+
+
+h1{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            55px,
+            9vw,
+            95px
+        );
+
+    line-height:.9;
+
+    color:#704264;
+
+    font-weight:700;
+
+}
+
+
+.subtitle{
+
+    margin-top:20px;
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    color:#86647f;
+
+}
+
+
+/* =========================
+   DECORATIVE LINE
+========================= */
+
+.decor{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:
+        25px
+        0
+        35px;
+
+}
+
+.decor-line{
+
+    width:70px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c58eb0
+        );
+
+}
+
+.decor-line:last-child{
+
+    background:
+        linear-gradient(
+            90deg,
+            #c58eb0,
+            transparent
+        );
+
+}
+
+.decor-heart{
+
+    color:#d96d9d;
+
+    font-size:13px;
+
+    animation:
+        pulse
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes pulse{
+
+    50%{
+        transform:scale(1.25);
+    }
+
+}
+
+
+/* =========================
+   WISH GRID
+========================= */
+
+.wishes{
+
+    width:100%;
+
+    max-width:1000px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+
+/* =========================
+   WISH CARD
+========================= */
+
+.wish-card{
+
+    min-height:220px;
+
+    padding:28px 22px;
+
+    border-radius:28px;
+
+    background:
+        rgba(255,255,255,.58);
+
+    border:
+        1px solid
+        rgba(255,255,255,.85);
+
+    box-shadow:
+        0 18px 45px
+        rgba(100,60,110,.10);
+
+    backdrop-filter:blur(15px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+
+    animation:
+        cardReveal
+        .9s
+        ease
+        both;
+
+}
+
+.wish-card:nth-child(1){
+    animation-delay:.15s;
+}
+
+.wish-card:nth-child(2){
+    animation-delay:.25s;
+}
+
+.wish-card:nth-child(3){
+    animation-delay:.35s;
+}
+
+.wish-card:nth-child(4){
+    animation-delay:.45s;
+}
+
+.wish-card:nth-child(5){
+    animation-delay:.55s;
+}
+
+.wish-card:nth-child(6){
+    animation-delay:.65s;
+}
+
+@keyframes cardReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(30px)
+            scale(.94);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.wish-card:hover{
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 25px 55px
+        rgba(100,60,110,.18);
+
+}
+
+
+/* =========================
+   CARD DECORATION
+========================= */
+
+.card-glow{
+
+    position:absolute;
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,190,220,.30),
+            transparent 70%
+        );
+
+    top:-70px;
+    right:-70px;
+
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.icon{
+
+    width:58px;
+    height:58px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:26px;
+
+    background:
+        rgba(255,255,255,.65);
+
+    box-shadow:
+        0 8px 20px
+        rgba(100,60,110,.08);
+
+    margin-bottom:17px;
+
+    transition:
+        transform .5s ease;
+
+}
+
+.wish-card:hover .icon{
+
+    transform:
+        rotate(-8deg)
+        scale(1.12);
+
+}
+
+
+/* =========================
+   CARD TITLE
+========================= */
+
+.wish-title{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:27px;
+
+    font-weight:700;
+
+    color:#714363;
+
+}
+
+
+/* =========================
+   TAP TEXT
+========================= */
+
+.tap{
+
+    margin-top:8px;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#ae7c9d;
+
+    text-transform:uppercase;
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+
+    position:absolute;
+
+    inset:0;
+
+    padding:30px 24px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        rgba(255,244,250,.96);
+
+    opacity:0;
+
+    transform:
+        scale(.8);
+
+    transition:
+        .45s ease;
+
+    pointer-events:none;
+
+}
+
+.wish-card.open .message{
+
+    opacity:1;
+
+    transform:
+        scale(1);
+
+}
+
+.message-icon{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+.message p{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:23px;
+
+    line-height:1.35;
+
+    font-weight:600;
+
+    color:#704264;
+
+}
+
+.close-text{
+
+    margin-top:14px;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#b17b9c;
+
+}
+
+
+/* =========================
+   FINAL SECTION
+========================= */
+
+.final-section{
+
+    margin-top:50px;
+
+    text-align:center;
+
+    animation:
+        fadeUp
+        1.5s
+        ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+.progress-text{
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:#9d6b8c;
+
+    margin-bottom:14px;
+
+}
+
+
+/* =========================
+   NEXT BUTTON
+========================= */
+
+.next-button{
+
+    border:none;
+
+    padding:
+        16px
+        34px;
+
+    border-radius:50px;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c66b99,
+            #9c669e
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(130,70,120,.22);
+
+    cursor:pointer;
+
+    transition:
+        .4s ease;
+
+    opacity:.45;
+
+    pointer-events:none;
+
+}
+
+.next-button.ready{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+    animation:
+        buttonGlow
+        2s
+        ease-in-out
+        infinite alternate;
+
+}
+
+.next-button.ready:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 18px 38px
+        rgba(130,70,120,.30);
+
+}
+
+@keyframes buttonGlow{
+
+    from{
+        box-shadow:
+            0 10px 25px
+            rgba(130,70,120,.20);
+    }
+
+    to{
+        box-shadow:
+            0 12px 38px
+            rgba(190,80,140,.40);
+    }
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    margin-top:22px;
+
+    font-size:9px;
+
+    color:#a07b93;
+
+    letter-spacing:2px;
+
+}
+
+
+/* =========================
+   CELEBRATION POP
+========================= */
+
+.pop{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    font-size:18px;
+
+    z-index:100;
+
+    animation:
+        pop
+        1s
+        ease
+        forwards;
+
+}
+
+@keyframes pop{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.4);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.2);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(.8);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px){
+
+    .wishes{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:520px){
+
+    .page{
+
+        padding-top:40px;
+
+    }
+
+    h1{
+
+        font-size:58px;
+
+    }
+
+    .wishes{
+
+        grid-template-columns:1fr;
+
+        max-width:360px;
+
+    }
+
+    .wish-card{
+
+        min-height:190px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+
+<!-- PAGE -->
+
+<div class="page">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="mini-title">
+
+            ✦ A LITTLE COLLECTION OF WISHES ✦
+
+        </div>
+
+
+        <h1>
+
+            Birthday Wishes
+
+        </h1>
+
+
+        <p class="subtitle">
+
+            Six little wishes,
+            written with a lot of happiness
+            for a wonderful person.
+
+            <br>
+
+            Tap each card and discover them.
+
+        </p>
+
+
+    </div>
+
+
+    <!-- DECOR -->
+
+    <div class="decor">
+
+        <div class="decor-line"></div>
+
+        <div class="decor-heart">♥</div>
+
+        <div class="decor-line"></div>
+
+    </div>
+
+
+    <!-- WISH CARDS -->
+
+    <div class="wishes">
+
+
+        <!-- CARD 1 -->
+
+        <div
+            class="wish-card"
+            onclick="openWish(this)"
+        >
+
+            <div class="card-glow"></div>
+
+            <div class="icon">
+                🌸
+            </div>
+
+            <div class="wish-title">
+                Keep Smiling
+            </div>
+
+            <div class="tap">
+                Tap to open
+            </div>
+
+
+            <div class="message">
+
+                <div class="message-icon">
+                    🌸
+                </div>
+
+                <p>
+                    May your beautiful smile
+                    always stay bright.
+                </p>
+
+                <div class="close-text">
+                    TAP AGAIN TO CLOSE
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div
+            class="wish-card"
+            onclick="openWish(this)"
+        >
+
+            <div class="card-glow"></div>
+
+            <div class="icon">
+                ✨
+            </div>
+
+            <div class="wish-title">
+                Keep Dreaming
+            </div>
+
+            <div class="tap">
+                Tap to open
+            </div>
+
+
+            <div class="message">
+
+                <div class="message-icon">
+                    ✨
+                </div>
+
+                <p>
+                    May every beautiful dream
+                    slowly become your reality.
+                </p>
+
+                <div class="close-text">
+                    TAP AGAIN TO CLOSE
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div
+            class="wish-card"
+            onclick="openWish(this)"
+        >
+
+            <div class="card-glow"></div>
+
+            <div class="icon">
+                🌱
+            </div>
+
+            <div class="wish-title">
+                Keep Growing
+            </div>
+
+            <div class="tap">
+                Tap to open
+            </div>
+
+
+            <div class="message">
+
+                <div class="message-icon">
+                    🌱
+                </div>
+
+                <p>
+                    May every new day bring
+                    something beautiful to learn.
+                </p>
+
+                <div class="close-text">
+                    TAP AGAIN TO CLOSE
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 4 -->
+
+        <div
+            class="wish-card"
+            onclick="openWish(this)"
+        >
+
+            <div class="card-glow"></div>
+
+            <div class="icon">
+                💫
+            </div>
+
+            <div class="wish-title">
+                Keep Believing
+            </div>
+
+            <div class="tap">
+                Tap to open
+            </div>
+
+
+            <div class="message">
+
+                <div class="message-icon">
+                    💫
+                </div>
+
+                <p>
+                    Believe in your journey,
+                    even when the road feels long.
+                </p>
+
+                <div class="close-text">
+                    TAP AGAIN TO CLOSE
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 5 -->
+
+        <div
+            class="wish-card"
+            onclick="openWish(this)"
+        >
+
+            <div class="card-glow"></div>
+
+            <div class="icon">
+                🦋
+            </div>
+
+            <div class="wish-title">
+                Keep Shining
+            </div>
+
+            <div class="tap">
+                Tap to open
+            </div>
+
+
+            <div class="message">
+
+                <div class="message-icon">
+                    🦋
+                </div>
+
+                <p>
+                    May your kindness and
+                    talent always shine brightly.
+                </p>
+
+                <div class="close-text">
+                    TAP AGAIN TO CLOSE
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 6 -->
+
+        <div
+            class="wish-card"
+            onclick="openWish(this)"
+        >
+
+            <div class="card-glow"></div>
+
+            <div class="icon">
+                🇮🇳
+            </div>
+
+            <div class="wish-title">
+                Chase Your Dream
+            </div>
+
+            <div class="tap">
+                Tap to open
+            </div>
+
+
+            <div class="message">
+
+                <div class="message-icon">
+                    🇮🇳
+                </div>
+
+                <p>
+                    May your dedication lead you
+                    closer to your dream of becoming
+                    an IAS Officer.
+                </p>
+
+                <div class="close-text">
+                    TAP AGAIN TO CLOSE
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FINAL -->
+
+    <div class="final-section">
+
+        <div
+            class="progress-text"
+            id="progress"
+        >
+            0 / 6 wishes discovered
+        </div>
+
+
+        <button
+            class="next-button"
+            id="nextButton"
+            onclick="goNext()"
+        >
+
+            ONE MORE SURPRISE&nbsp; →
+
+        </button>
+
+
+        <div class="footer">
+
+            ✦ THERE IS STILL A LITTLE SOMETHING WAITING ✦
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+for(let i=0;i<35;i++){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML =
+        Math.random()>.5
+        ? "♥"
+        : "♡";
+
+    heart.style.left =
+        Math.random()*100+"vw";
+
+    heart.style.fontSize =
+        (8+Math.random()*15)+"px";
+
+    heart.style.setProperty(
+        "--duration",
+        (8+Math.random()*8)+"s"
+    );
+
+    heart.style.setProperty(
+        "--delay",
+        (-Math.random()*15)+"s"
+    );
+
+    heart.style.setProperty(
+        "--move",
+        (-70+Math.random()*140)+"px"
+    );
+
+    document.body.appendChild(heart);
+
+}
+
+
+/* =========================
+   WISH COUNTER
+========================= */
+
+let discovered = 0;
+
+
+function openWish(card){
+
+    const wasOpen =
+        card.classList.contains("open");
+
+
+    if(!wasOpen){
+
+        card.classList.add("open");
+
+        discovered++;
+
+        createCelebration(card);
+
+        updateProgress();
+
+    }
+    else{
+
+        card.classList.remove("open");
+
+    }
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function updateProgress(){
+
+    const progress =
+        document.getElementById("progress");
+
+    const button =
+        document.getElementById("nextButton");
+
+
+    progress.innerText =
+        discovered +
+        " / 6 wishes discovered";
+
+
+    if(discovered===6){
+
+        progress.innerText =
+            "✦ ALL 6 WISHES DISCOVERED ✦";
+
+        button.classList.add("ready");
+
+    }
+
+}
+
+
+/* =========================
+   CELEBRATION
+========================= */
+
+function createCelebration(card){
+
+    const rect =
+        card.getBoundingClientRect();
+
+
+    const symbols=[
+        "♥",
+        "♡",
+        "✦",
+        "✨",
+        "🌸"
+    ];
+
+
+    for(let i=0;i<9;i++){
+
+        const pop =
+            document.createElement("div");
+
+        pop.className="pop";
+
+        pop.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random()*
+                    symbols.length
+                )
+            ];
+
+
+        pop.style.left =
+            (rect.left+rect.width/2)+"px";
+
+        pop.style.top =
+            (rect.top+rect.height/2)+"px";
+
+
+        pop.style.setProperty(
+            "--x",
+            (-90+Math.random()*180)+"px"
+        );
+
+        pop.style.setProperty(
+            "--y",
+            (-100+Math.random()*200)+"px"
+        );
+
+
+        document.body.appendChild(pop);
+
+
+        setTimeout(()=>{
+
+            pop.remove();
+
+        },1000);
+
+    }
+
+}
+
+
+/* =========================
+   NEXT PAGE
+========================= */
+
+function goNext(){
+
+    if(discovered < 6){
+
+        return;
+
+    }
+
+
+    const page =
+        document.querySelector(".page");
+
+
+    page.style.transition =
+        "1s ease";
+
+    page.style.opacity="0";
+
+    page.style.transform=
+        "scale(1.04)";
+
+
+    setTimeout(()=>{
+
+        window.location.href =
+            "final.html";
+
+    },900);
+
+}
+
+</script>
+
+</body>
+
+</html>

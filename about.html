@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little About You</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:'DM Sans',sans-serif;
+    color:#394c43;
+    background:#f7f0df;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.35;
+    z-index:-20;
+
+    background-image:
+        radial-gradient(
+            rgba(90,70,40,.12) 1px,
+            transparent 1px
+        );
+
+    background-size:18px 18px;
+}
+
+.blob{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(3px);
+    pointer-events:none;
+    z-index:-10;
+}
+
+.blob.one{
+    width:420px;
+    height:420px;
+    background:#d9eee1;
+    top:-180px;
+    left:-160px;
+
+    animation:
+        moveOne
+        10s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+.blob.two{
+    width:360px;
+    height:360px;
+    background:#f6cbb4;
+    right:-150px;
+    top:35%;
+
+    animation:
+        moveTwo
+        12s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+.blob.three{
+    width:300px;
+    height:300px;
+    background:#e7d8ee;
+    bottom:-130px;
+    left:30%;
+
+    animation:
+        moveThree
+        9s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes moveOne{
+    to{
+        transform:
+            translate(120px,90px)
+            scale(1.15);
+    }
+}
+
+@keyframes moveTwo{
+    to{
+        transform:
+            translate(-100px,60px)
+            scale(1.12);
+    }
+}
+
+@keyframes moveThree{
+    to{
+        transform:
+            translate(80px,-70px)
+            scale(1.15);
+    }
+}
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    pointer-events:none;
+    z-index:2;
+    color:#d87988;
+    font-size:var(--size);
+    opacity:0;
+
+    animation:
+        heartFloat
+        var(--duration)
+        linear
+        infinite;
+}
+
+@keyframes heartFloat{
+
+    0%{
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    12%{
+        opacity:var(--opacity);
+    }
+
+    50%{
+        transform:
+            translateY(-50vh)
+            translateX(var(--move))
+            rotate(15deg);
+    }
+
+    100%{
+        transform:
+            translateY(-120vh)
+            translateX(calc(var(--move) * -1))
+            rotate(-20deg);
+
+        opacity:0;
+    }
+}
+
+.wrapper{
+    width:min(1180px,92%);
+    margin:auto;
+
+    padding:
+        55px
+        0
+        70px;
+}
+
+.top-label{
+    text-align:center;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:5px;
+    color:#71877b;
+    margin-bottom:13px;
+
+    animation:
+        fadeDown
+        1s
+        ease;
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(-25px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+.heading{
+    text-align:center;
+
+    animation:
+        headingReveal
+        1.3s
+        ease;
+}
+
+.heading h1{
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            65px,
+            10vw,
+            110px
+        );
+
+    line-height:.75;
+    color:#394c43;
+}
+
+.heading .script{
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            62px
+        );
+
+    color:#bd6875;
+    margin-top:15px;
+}
+
+@keyframes headingReveal{
+
+    from{
+        opacity:0;
+
+        transform:
+            scale(.9);
+
+        filter:blur(8px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            scale(1);
+
+        filter:blur(0);
+    }
+}
+
+.line{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:13px;
+
+    margin:
+        25px
+        auto
+        40px;
+}
+
+.line span{
+    width:95px;
+    height:1px;
+    background:#b7c7bc;
+}
+
+.line b{
+    color:#bd6875;
+    font-size:14px;
+}
+
+.journal{
+    display:grid;
+
+    grid-template-columns:
+        360px
+        1fr;
+
+    gap:35px;
+    position:relative;
+
+    animation:
+        boardReveal
+        1.2s
+        .25s
+        both;
+}
+
+@keyframes boardReveal{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(45px)
+            rotate(.5deg);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+}
+
+.photo-frame{
+    background:#fffaf0;
+
+    padding:
+        15px
+        15px
+        45px;
+
+    box-shadow:
+        0 18px 35px
+        rgba(73,65,50,.16);
+
+    transform:
+        rotate(-2.5deg);
+
+    position:relative;
+    transition:.5s ease;
+}
+
+.photo-frame:hover{
+    transform:
+        rotate(0deg)
+        translateY(-8px);
+
+    box-shadow:
+        0 25px 45px
+        rgba(73,65,50,.22);
+}
+
+.photo{
+    width:100%;
+    height:380px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dceee2,
+            #f7d7c5
+        );
+}
+
+/* =====================================================
+   ABOUT PHOTO
+===================================================== */
+
+.about-photo{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center top;
+
+    display:block;
+
+    transition:
+        transform
+        .5s
+        ease;
+}
+
+.photo-frame:hover .about-photo{
+    transform:scale(1.03);
+}
+
+.photo-content{
+    text-align:center;
+}
+
+.photo-icon{
+    font-size:75px;
+
+    animation:
+        gentleFloat
+        3s
+        ease-in-out
+        infinite;
+}
+
+.photo-content h2{
+    margin-top:15px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:28px;
+    color:#53685c;
+}
+
+.photo-content p{
+    margin-top:5px;
+    font-size:10px;
+    color:#8b978e;
+}
+
+.frame-caption{
+    position:absolute;
+    bottom:13px;
+    left:0;
+    width:100%;
+
+    text-align:center;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:24px;
+    color:#bd6875;
+}
+
+@keyframes gentleFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-9px);
+    }
+}
+
+.tape{
+    position:absolute;
+
+    width:100px;
+    height:27px;
+
+    background:
+        rgba(237,202,148,.72);
+
+    top:-12px;
+    left:50%;
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
+
+    opacity:.8;
+
+    z-index:2;
+}
+
+.content{
+    padding:
+        10px
+        5px;
+}
+
+.small-heading{
+    font-size:10px;
+    letter-spacing:4px;
+    font-weight:600;
+
+    color:#bd6875;
+    margin-bottom:8px;
+}
+
+.content h2{
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            40px,
+            5vw,
+            58px
+        );
+
+    color:#394c43;
+    line-height:.95;
+}
+
+.intro{
+    margin-top:20px;
+
+    font-size:13px;
+    line-height:2;
+
+    color:#63736a;
+    max-width:650px;
+}
+
+.section-title{
+    margin-top:28px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:29px;
+    color:#53685c;
+}
+
+.things{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:13px;
+    margin-top:15px;
+}
+
+.thing{
+    min-height:110px;
+    padding:18px;
+
+    background:
+        rgba(255,255,255,.62);
+
+    border:
+        1px solid
+        rgba(130,150,135,.18);
+
+    border-radius:18px;
+
+    position:relative;
+    overflow:hidden;
+
+    transition:
+        .35s ease;
+}
+
+.thing:nth-child(1){
+    transform:rotate(-1deg);
+}
+
+.thing:nth-child(2){
+    transform:rotate(1deg);
+}
+
+.thing:nth-child(3){
+    transform:rotate(1deg);
+}
+
+.thing:nth-child(4){
+    transform:rotate(-1deg);
+}
+
+.thing:hover{
+    transform:
+        rotate(0)
+        translateY(-6px)
+        scale(1.02);
+
+    box-shadow:
+        0 14px 28px
+        rgba(73,80,70,.13);
+}
+
+.thing-icon{
+    font-size:25px;
+}
+
+.thing h3{
+    margin-top:7px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:22px;
+    color:#53685c;
+}
+
+.thing p{
+    margin-top:2px;
+
+    font-size:9px;
+    line-height:1.6;
+
+    color:#839087;
+}
+
+.note{
+    margin-top:22px;
+
+    padding:
+        19px
+        23px;
+
+    background:#fff0a8;
+
+    box-shadow:
+        0 10px 20px
+        rgba(100,90,50,.12);
+
+    transform:
+        rotate(-1deg);
+
+    position:relative;
+}
+
+.note::before{
+    content:"";
+
+    position:absolute;
+
+    top:-7px;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:75px;
+    height:18px;
+
+    background:
+        rgba(225,190,130,.55);
+}
+
+.note-title{
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:27px;
+    color:#98723d;
+}
+
+.note p{
+    margin-top:4px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:20px;
+    line-height:1.3;
+
+    color:#765d3c;
+}
+
+.letter-section{
+    margin-top:55px;
+
+    text-align:center;
+    position:relative;
+}
+
+.letter-section::before{
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+    height:1px;
+
+    top:-25px;
+    left:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c8bba5,
+            transparent
+        );
+}
+
+.letter-label{
+    font-size:9px;
+    letter-spacing:4px;
+    color:#8a968e;
+}
+
+.letter-button{
+    margin-top:15px;
+
+    border:none;
+    cursor:pointer;
+
+    padding:
+        19px
+        36px;
+
+    border-radius:12px;
+
+    background:#bd6875;
+    color:white;
+
+    font-family:
+        'DM Sans',
+        sans-serif;
+
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:2px;
+
+    box-shadow:
+        0 12px 25px
+        rgba(150,75,90,.22);
+
+    transition:
+        .4s ease;
+}
+
+.letter-button:hover{
+    transform:
+        translateY(-5px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 18px 35px
+        rgba(150,75,90,.28);
+}
+
+.letter-button span{
+    margin-left:8px;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+        rgba(49,52,45,.55);
+
+    backdrop-filter:
+        blur(7px);
+
+    z-index:100;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.letter{
+    width:min(580px,95%);
+
+    padding:
+        42px
+        35px;
+
+    background:#fffaf0;
+
+    border-radius:5px;
+    position:relative;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.25);
+
+    transform:
+        rotate(-1deg)
+        scale(.85);
+
+    opacity:0;
+
+    animation:
+        letterOpen
+        .65s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes letterOpen{
+
+    to{
+        transform:
+            rotate(0)
+            scale(1);
+
+        opacity:1;
+    }
+}
+
+.letter::before{
+    content:"";
+
+    position:absolute;
+    inset:12px;
+
+    border:
+        1px dashed
+        #d7c8ad;
+
+    pointer-events:none;
+}
+
+.close{
+    position:absolute;
+
+    top:13px;
+    right:18px;
+
+    border:none;
+    background:none;
+
+    font-size:22px;
+    color:#9c817b;
+
+    cursor:pointer;
+    z-index:2;
+}
+
+.letter-small{
+    text-align:center;
+
+    font-size:9px;
+    letter-spacing:4px;
+    color:#a97980;
+}
+
+.letter h2{
+    margin-top:12px;
+
+    text-align:center;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:48px;
+    font-weight:400;
+
+    color:#bd6875;
+}
+
+.letter-body{
+    margin-top:22px;
+
+    padding:
+        0 12px;
+
+    text-align:center;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:22px;
+    line-height:1.55;
+
+    color:#59665e;
+}
+
+.signature{
+    margin-top:22px;
+
+    text-align:center;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:29px;
+    color:#bd6875;
+}
+
+.next-area{
+    text-align:center;
+    margin-top:45px;
+}
+
+.next-btn{
+    display:inline-block;
+
+    padding:
+        13px
+        28px;
+
+    border-radius:30px;
+
+    border:
+        1px solid
+        #9caf9f;
+
+    color:#53685c;
+
+    text-decoration:none;
+
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:2px;
+
+    background:
+        rgba(255,255,255,.45);
+
+    transition:.35s ease;
+}
+
+.next-btn:hover{
+    transform:
+        translateY(-4px);
+
+    background:#fffaf0;
+}
+
+.footer{
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:8px;
+    letter-spacing:3px;
+
+    color:#9aa69e;
+}
+
+@media(max-width:850px){
+
+    .journal{
+        grid-template-columns:1fr;
+    }
+
+    .photo-frame{
+        width:min(390px,100%);
+        margin:auto;
+    }
+
+    .content{
+        padding-top:15px;
+    }
+}
+
+@media(max-width:520px){
+
+    .wrapper{
+        width:94%;
+        padding-top:38px;
+    }
+
+    .things{
+        grid-template-columns:1fr;
+    }
+
+    .photo{
+        height:320px;
+    }
+
+    .about-photo{
+        object-position:center top;
+    }
+
+    .letter{
+        padding:
+            35px 22px;
+    }
+
+    .letter h2{
+        font-size:42px;
+    }
+
+    .letter-body{
+        font-size:19px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="blob one"></div>
+<div class="blob two"></div>
+<div class="blob three"></div>
+
+<div class="wrapper">
+
+    <div class="top-label">
+        A LITTLE PAGE • MADE JUST FOR YOU
+    </div>
+
+    <div class="heading">
+
+        <h1>
+            About
+        </h1>
+
+        <div class="script">
+            Saranya Sri
+        </div>
+
+    </div>
+
+    <div class="line">
+
+        <span></span>
+
+        <b>♥</b>
+
+        <span></span>
+
+    </div>
+
+    <section class="journal">
+
+        <div class="photo-frame">
+
+            <div class="tape"></div>
+
+            <div class="photo">
+
+                <!-- PHOTO ADDED HERE -->
+
+                <img
+                    src="./images/about.jpeg"
+                    alt="Saranya Sri"
+                    class="about-photo"
+                >
+
+            </div>
+
+            <div class="frame-caption">
+                One beautiful memory...
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <div class="small-heading">
+                A FEW LITTLE THINGS
+            </div>
+
+            <h2>
+                What makes<br>
+                you special?
+            </h2>
+
+            <p class="intro">
+
+                There are some people who are easy to
+                appreciate because of the little things
+                they bring into the lives around them.
+
+                <br><br>
+
+                Your kindness, your talents, your caring
+                nature and the dreams you carry make
+                your journey uniquely yours.
+
+            </p>
+
+            <div class="section-title">
+                Little Things I Notice ✦
+            </div>
+
+            <div class="things">
+
+                <div class="thing">
+
+                    <div class="thing-icon">
+                        🌸
+                    </div>
+
+                    <h3>
+                        Kind Heart
+                    </h3>
+
+                    <p>
+                        A warm and thoughtful nature
+                        that makes moments meaningful.
+                    </p>
+
+                </div>
+
+                <div class="thing">
+
+                    <div class="thing-icon">
+                        ✨
+                    </div>
+
+                    <h3>
+                        Multi-Talented
+                    </h3>
+
+                    <p>
+                        Different talents and interests
+                        make your personality special.
+                    </p>
+
+                </div>
+
+                <div class="thing">
+
+                    <div class="thing-icon">
+                        💗
+                    </div>
+
+                    <h3>
+                        Caring
+                    </h3>
+
+                    <p>
+                        The ability to value people
+                        and meaningful moments.
+                    </p>
+
+                </div>
+
+                <div class="thing">
+
+                    <div class="thing-icon">
+                        🌟
+                    </div>
+
+                    <h3>
+                        Big Dreams
+                    </h3>
+
+                    <p>
+                        A strong dream and the courage
+                        to keep moving toward it.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="note">
+
+                <div class="note-title">
+                    Remember this...
+                </div>
+
+                <p>
+                    “You don't have to be perfect
+                    to make your journey beautiful.”
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="letter-section">
+
+        <div class="letter-label">
+            THERE'S SOMETHING I WANTED TO SAY
+        </div>
+
+        <button
+            class="letter-button"
+            onclick="openLetter()"
+        >
+
+            💌 ONE LITTLE LETTER
+
+            <span>→</span>
+
+        </button>
+
+    </section>
+
+    <div class="next-area">
+
+        <a
+            href="future.html"
+            class="next-btn"
+        >
+            CONTINUE TO YOUR DREAM JOURNEY →
+        </a>
+
+    </div>
+
+    <div class="footer">
+        ✦ A SMALL MEMORY IN A BIG JOURNEY ✦
+    </div>
+
+</div>
+
+<div
+    class="modal"
+    id="letterModal"
+    onclick="closeOutside(event)"
+>
+
+    <div class="letter">
+
+        <button
+            class="close"
+            onclick="closeLetter()"
+        >
+            ×
+        </button>
+
+        <div class="letter-small">
+            ONE LITTLE LETTER
+        </div>
+
+        <h2>
+            For You ♡
+        </h2>
+
+        <div class="letter-body">
+
+            Some people become special
+            not because of one big moment,
+            but because of all the little moments
+            that make them memorable.
+
+            <br><br>
+
+            Keep your kind heart.
+            Keep discovering your talents.
+            Keep believing in your dreams.
+
+            <br><br>
+
+            And most importantly,
+            keep being the wonderful person
+            you are.
+
+        </div>
+
+        <div class="signature">
+            With warm wishes ✨
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+for(let i=0;i<45;i++){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML =
+        Math.random() > .65
+        ? "♥"
+        : "♡";
+
+    heart.style.left =
+        Math.random()*100+"vw";
+
+    heart.style.setProperty(
+        "--size",
+        (7 + Math.random()*14)+"px"
+    );
+
+    heart.style.setProperty(
+        "--duration",
+        (8 + Math.random()*9)+"s"
+    );
+
+    heart.style.setProperty(
+        "--move",
+        (-70 + Math.random()*140)+"px"
+    );
+
+    heart.style.setProperty(
+        "--opacity",
+        (.18 + Math.random()*.35)
+    );
+
+    heart.style.animationDelay =
+        (-Math.random()*15)+"s";
+
+    document.body.appendChild(heart);
+
+}
+
+function openLetter(){
+
+    const modal =
+        document.getElementById(
+            "letterModal"
+        );
+
+    modal.classList.add("show");
+
+    document.body.style.overflow="hidden";
+}
+
+function closeLetter(){
+
+    const modal =
+        document.getElementById(
+            "letterModal"
+        );
+
+    modal.classList.remove("show");
+
+    document.body.style.overflow="auto";
+}
+
+function closeOutside(event){
+
+    if(
+        event.target.id ===
+        "letterModal"
+    ){
+
+        closeLetter();
+
+    }
+
+}
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeLetter();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

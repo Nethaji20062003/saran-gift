@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>ஒரு சிறிய கவிதை</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+Tamil:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    font-family:
+        'Noto Sans Tamil',
+        sans-serif;
+
+    color:#ffffff;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 10%,
+            #392765 0%,
+            #211840 28%,
+            #0e102b 62%,
+            #030518 100%
+        );
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.sky{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(145,104,220,.12),
+            transparent 35%
+        );
+}
+
+
+/* =========================================
+   MOON
+========================================= */
+
+.moon{
+
+    position:fixed;
+
+    top:65px;
+
+    right:9%;
+
+    width:125px;
+    height:125px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff,
+            #eeeaff 52%,
+            #cbc5e7 100%
+        );
+
+    box-shadow:
+
+        0 0 25px
+        rgba(255,255,255,.35),
+
+        0 0 90px
+        rgba(190,170,255,.25);
+
+    z-index:2;
+
+    animation:
+        moonFloat
+        6s
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes moonFloat{
+
+    to{
+        transform:translateY(12px);
+    }
+
+}
+
+
+/* =========================================
+   MOON CRATERS
+========================================= */
+
+.moon::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    top:28px;
+    left:25px;
+
+    background:
+        rgba(130,125,160,.15);
+
+    box-shadow:
+
+        32px 27px 0
+        rgba(130,125,160,.12),
+
+        53px -9px 0
+        rgba(130,125,160,.10),
+
+        18px 58px 0
+        rgba(130,125,160,.10);
+}
+
+
+/* =========================================
+   STARS
+========================================= */
+
+.star{
+
+    position:fixed;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 0 8px #ffffff;
+
+    z-index:1;
+
+    animation:
+        twinkle
+        var(--duration)
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes twinkle{
+
+    from{
+
+        opacity:.15;
+
+        transform:scale(.5);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1.5);
+
+    }
+
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-30px;
+
+    color:#d9aaff;
+
+    font-size:var(--size);
+
+    opacity:0;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(210,160,255,.7)
+        );
+
+    animation:
+        heartFloat
+        var(--duration)
+        linear
+        infinite;
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:0;
+
+    }
+
+    12%{
+
+        opacity:.55;
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-50vh)
+            translateX(var(--move))
+            rotate(18deg)
+            scale(1);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(-115vh)
+            translateX(calc(var(--move) * -1))
+            rotate(-20deg)
+            scale(.8);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.page{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:
+        100px
+        18px
+        80px;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+
+    max-width:850px;
+
+    margin:
+        0 auto
+        80px;
+
+    text-align:center;
+
+    animation:
+        headerReveal
+        1.5s
+        ease;
+
+}
+
+@keyframes headerReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(40px);
+
+        filter:blur(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+        filter:blur(0);
+
+    }
+
+}
+
+
+.mini-title{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:#cbb5ff;
+
+    margin-bottom:22px;
+
+}
+
+
+.header h1{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            55px,
+            9vw,
+            100px
+        );
+
+    line-height:.9;
+
+    color:#ffffff;
+
+    text-shadow:
+
+        0 0 25px
+        rgba(190,160,255,.4);
+
+}
+
+
+.header p{
+
+    max-width:650px;
+
+    margin:
+        28px auto 0;
+
+    color:#bdb8d2;
+
+    font-size:14px;
+
+    line-height:2;
+
+}
+
+
+/* =========================================
+   CHAPTER
+========================================= */
+
+.chapter{
+
+    max-width:900px;
+
+    min-height:520px;
+
+    margin:
+        0 auto
+        45px;
+
+    padding:
+        45px;
+
+    border-radius:32px;
+
+    border:
+        1px solid
+        rgba(220,200,255,.13);
+
+    background:
+        rgba(255,255,255,.045);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+
+        0 25px 80px
+        rgba(0,0,0,.28);
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr
+        1.2fr;
+
+    align-items:center;
+
+    gap:50px;
+
+    opacity:0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        1s ease;
+
+}
+
+.chapter.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================
+   CHAPTER TEXT
+========================================= */
+
+.chapter-text{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+.chapter-number{
+
+    font-family:'Poppins',sans-serif;
+
+    color:#a98ce8;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    margin-bottom:15px;
+
+}
+
+
+.chapter h2{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:43px;
+
+    color:#ffffff;
+
+    margin-bottom:25px;
+
+    line-height:1.1;
+
+}
+
+
+.poem{
+
+    color:#d0ccdc;
+
+    font-size:15px;
+
+    line-height:2.35;
+
+}
+
+
+.poem span{
+
+    color:#efdfff;
+
+    font-weight:600;
+
+}
+
+
+/* =========================================
+   VISUAL BOX
+========================================= */
+
+.visual{
+
+    height:380px;
+
+    border-radius:28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(170,130,255,.15),
+            transparent 65%
+        );
+
+    border:
+        1px solid
+        rgba(220,200,255,.10);
+
+}
+
+
+/* =========================================
+   MEMORY PHOTO
+========================================= */
+
+.memory-photo{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:18px;
+
+    transition:
+        transform .5s ease;
+
+}
+
+
+/* =========================================
+   IMPORTANT FIX
+   KAVITHAI 1 & 3
+   FULL PHOTO + FACE VISIBLE
+========================================= */
+
+.memory-photo.k1,
+.memory-photo.k3{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    object-position:center center;
+
+    background:
+        rgba(10,8,30,.35);
+
+    padding:8px;
+
+    border-radius:20px;
+
+}
+
+
+/* =========================================
+   KAVITHAI 1
+========================================= */
+
+.memory-photo.k1{
+
+    object-position:center center;
+
+}
+
+
+/* =========================================
+   KAVITHAI 3
+========================================= */
+
+.memory-photo.k3{
+
+    object-position:center center;
+
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.memory-photo:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+/* =========================================
+   MEMORY ORBS
+========================================= */
+
+.memory-orb{
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    background:
+        rgba(180,140,255,.12);
+
+    box-shadow:
+        0 0 30px
+        rgba(180,140,255,.25);
+
+    animation:
+        orbFloat
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+.memory-orb:nth-child(1){
+
+    top:55px;
+    left:55px;
+
+    animation-delay:0s;
+
+}
+
+.memory-orb:nth-child(2){
+
+    right:55px;
+    top:120px;
+
+    width:65px;
+    height:65px;
+
+    animation-delay:1s;
+
+}
+
+.memory-orb:nth-child(3){
+
+    bottom:55px;
+    left:100px;
+
+    width:55px;
+    height:55px;
+
+    animation-delay:2s;
+
+}
+
+@keyframes orbFloat{
+
+    50%{
+
+        transform:
+            translateY(-25px)
+            scale(1.08);
+
+        opacity:.8;
+
+    }
+
+}
+
+
+.memory-center{
+
+    width:145px;
+    height:145px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:55px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    box-shadow:
+
+        0 0 50px
+        rgba(180,140,255,.3);
+
+    animation:
+        centerPulse
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes centerPulse{
+
+    50%{
+
+        transform:scale(1.08);
+
+        box-shadow:
+            0 0 75px
+            rgba(190,150,255,.45);
+
+    }
+
+}
+
+
+/* =========================================
+   PHOTO FRAME
+========================================= */
+
+.photo-frame{
+
+    width:210px;
+    height:260px;
+
+    padding:12px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    transform:
+        rotate(-5deg);
+
+    box-shadow:
+        0 25px 45px
+        rgba(0,0,0,.4);
+
+    animation:
+        photoFloat
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================
+   PHOTO INSIDE
+========================================= */
+
+.photo-inside{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:55px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #e8d9ff,
+            #f8e9f4
+        );
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================
+   KAVITHAI 2 PHOTO
+   FACE FULLY VISIBLE
+========================================= */
+
+.photo-inside img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    object-position:center center;
+
+    display:block;
+
+    background:#f3eaf8;
+
+}
+
+
+/* =========================================
+   PHOTO FLOAT
+========================================= */
+
+@keyframes photoFloat{
+
+    50%{
+
+        transform:
+            rotate(5deg)
+            translateY(-15px);
+
+    }
+
+}
+
+
+/* =========================================
+   FLOWER
+========================================= */
+
+.flower{
+
+    position:relative;
+
+    width:160px;
+    height:160px;
+
+    animation:
+        flowerSpin
+        15s
+        linear
+        infinite;
+
+}
+
+@keyframes flowerSpin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+.petal{
+
+    position:absolute;
+
+    width:75px;
+    height:105px;
+
+    border-radius:
+        60%
+        40%
+        60%
+        40%;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f5c8ff,
+            #b97ae8
+        );
+
+    left:42px;
+    top:27px;
+
+    transform-origin:
+        38px 53px;
+
+}
+
+.petal:nth-child(1){
+    transform:rotate(0deg);
+}
+
+.petal:nth-child(2){
+    transform:rotate(72deg);
+}
+
+.petal:nth-child(3){
+    transform:rotate(144deg);
+}
+
+.petal:nth-child(4){
+    transform:rotate(216deg);
+}
+
+.petal:nth-child(5){
+    transform:rotate(288deg);
+}
+
+
+.flower-center{
+
+    position:absolute;
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+
+    left:55px;
+    top:55px;
+
+    background:#ffd86f;
+
+    box-shadow:
+        0 0 30px
+        rgba(255,216,111,.6);
+
+}
+
+
+/* =========================================
+   DREAM JOURNEY
+========================================= */
+
+.road{
+
+    position:absolute;
+
+    bottom:55px;
+
+    width:80%;
+
+    height:3px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #c9a7ff,
+            transparent
+        );
+
+}
+
+
+.star-dream{
+
+    position:absolute;
+
+    font-size:25px;
+
+    color:#f5dfff;
+
+    animation:
+        dreamRise
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+.star-dream:nth-child(2){
+
+    bottom:65px;
+    left:15%;
+
+}
+
+.star-dream:nth-child(3){
+
+    bottom:125px;
+    left:35%;
+
+    animation-delay:1s;
+
+}
+
+.star-dream:nth-child(4){
+
+    bottom:190px;
+    left:55%;
+
+    animation-delay:2s;
+
+}
+
+.star-dream:nth-child(5){
+
+    bottom:255px;
+    left:73%;
+
+    animation-delay:3s;
+
+}
+
+@keyframes dreamRise{
+
+    50%{
+
+        transform:
+            translateY(-18px)
+            scale(1.25);
+
+        text-shadow:
+            0 0 25px
+            #d3a9ff;
+
+    }
+
+}
+
+
+.dream-title{
+
+    position:absolute;
+
+    top:50px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:30px;
+
+    color:#eee4ff;
+
+    text-shadow:
+        0 0 25px
+        rgba(210,170,255,.5);
+
+}
+
+
+/* =========================================
+   BIRTHDAY
+========================================= */
+
+.birthday-orb{
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:75px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,220,240,.3),
+            rgba(180,120,255,.12),
+            transparent 70%
+        );
+
+    box-shadow:
+        0 0 80px
+        rgba(220,170,255,.3);
+
+    animation:
+        birthdayPulse
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes birthdayPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+
+}
+
+
+/* =========================================
+   BALLOONS
+========================================= */
+
+.balloon{
+
+    position:absolute;
+
+    width:45px;
+    height:60px;
+
+    border-radius:
+        50%
+        50%
+        45%
+        45%;
+
+    animation:
+        balloonFloat
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+.balloon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:1px;
+    height:80px;
+
+    background:
+        rgba(255,255,255,.4);
+
+    top:58px;
+
+    left:50%;
+
+}
+
+.balloon.one{
+
+    left:50px;
+    top:70px;
+
+    background:#dba8ff;
+
+}
+
+.balloon.two{
+
+    right:55px;
+    top:100px;
+
+    background:#ffb8d8;
+
+    animation-delay:1s;
+
+}
+
+.balloon.three{
+
+    left:100px;
+    bottom:50px;
+
+    background:#a9d5ff;
+
+    animation-delay:2s;
+
+}
+
+@keyframes balloonFloat{
+
+    50%{
+
+        transform:
+            translateY(-20px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.quote{
+
+    max-width:800px;
+
+    margin:
+        100px auto;
+
+    text-align:center;
+
+    padding:30px;
+
+    opacity:0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        1s ease;
+
+}
+
+.quote.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.quote::before{
+
+    content:"“";
+
+    display:block;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:90px;
+
+    line-height:.4;
+
+    color:
+        rgba(210,175,255,.25);
+
+}
+
+
+.quote p{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            28px,
+            5vw,
+            48px
+        );
+
+    line-height:1.4;
+
+    color:#eee6ff;
+
+}
+
+
+/* =========================================
+   GRAND FINALE
+========================================= */
+
+.final{
+
+    min-height:650px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transform:
+        scale(.9);
+
+    transition:
+        1.5s ease;
+
+}
+
+.final.show{
+
+    opacity:1;
+
+    transform:
+        scale(1);
+
+}
+
+
+.final-content{
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+
+.final-small{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:6px;
+
+    color:#cbb2ff;
+
+    margin-bottom:25px;
+
+}
+
+
+.final h2{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            65px,
+            12vw,
+            145px
+        );
+
+    line-height:.85;
+
+    color:#ffffff;
+
+    text-shadow:
+
+        0 0 20px
+        rgba(255,255,255,.4),
+
+        0 0 60px
+        rgba(190,130,255,.4);
+
+    animation:
+        birthdayGlow
+        3s
+        ease-in-out
+        infinite alternate;
+
+}
+
+@keyframes birthdayGlow{
+
+    to{
+
+        text-shadow:
+
+            0 0 30px
+            rgba(255,255,255,.7),
+
+            0 0 90px
+            rgba(190,130,255,.7);
+
+    }
+
+}
+
+
+.final-name{
+
+    margin-top:25px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            80px
+        );
+
+    color:#e4c9ff;
+
+    letter-spacing:5px;
+
+    animation:
+        nameReveal
+        2s
+        ease;
+
+}
+
+@keyframes nameReveal{
+
+    from{
+
+        opacity:0;
+
+        letter-spacing:20px;
+
+    }
+
+    to{
+
+        opacity:1;
+
+        letter-spacing:5px;
+
+    }
+
+}
+
+
+.final-message{
+
+    max-width:650px;
+
+    margin:
+        30px auto;
+
+    color:#c7c1d8;
+
+    font-size:14px;
+
+    line-height:2;
+
+}
+
+
+.final-wish{
+
+    margin-top:25px;
+
+    color:#f0ddff;
+
+    font-size:18px;
+
+    font-weight:500;
+
+}
+
+
+/* =========================================
+   FINAL PARTICLES
+========================================= */
+
+.final-particle{
+
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 0 12px
+        #d6aaff;
+
+    animation:
+        finalParticle
+        var(--time)
+        linear
+        infinite;
+
+}
+
+@keyframes finalParticle{
+
+    from{
+
+        transform:
+            translateY(100vh)
+            scale(.4);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+            translateY(-100vh)
+            scale(1.2);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================================
+   CONTINUE BUTTON
+========================================= */
+
+.continue{
+
+    margin-top:40px;
+
+    padding:
+        15px
+        35px;
+
+    border-radius:50px;
+
+    border:
+        1px solid
+        rgba(220,190,255,.35);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:#eee4ff;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    transition:.4s ease;
+
+}
+
+.continue:hover{
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(190,140,255,.15);
+
+    box-shadow:
+        0 15px 40px
+        rgba(160,100,255,.25);
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:700px){
+
+    .page{
+
+        padding:
+            90px
+            13px
+            50px;
+
+    }
+
+    .moon{
+
+        width:75px;
+        height:75px;
+
+        top:65px;
+        right:7%;
+
+    }
+
+    .chapter{
+
+        min-height:auto;
+
+        padding:28px 20px;
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+    }
+
+    .chapter h2{
+
+        font-size:35px;
+
+    }
+
+    .poem{
+
+        font-size:13px;
+
+        line-height:2.2;
+
+    }
+
+    .visual{
+
+        height:310px;
+
+    }
+
+    .header{
+
+        margin-bottom:55px;
+
+    }
+
+    .photo-frame{
+
+        width:190px;
+        height:235px;
+
+    }
+
+    /* Mobile face visibility fix */
+    .memory-photo.k1,
+    .memory-photo.k3{
+
+        width:100%;
+
+        height:100%;
+
+        object-fit:contain;
+
+        object-position:center center;
+
+        padding:5px;
+
+    }
+
+    .photo-inside img{
+
+        object-fit:contain;
+
+        object-position:center center;
+
+    }
+
+}
+
+
+/* =========================================
+   REDUCE MOTION
+========================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     SKY
+========================================= -->
+
+<div class="sky"></div>
+
+<div class="moon"></div>
+
+
+<!-- =========================================
+     MAIN PAGE
+========================================= -->
+
+<main class="page">
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<section class="header">
+
+    <div class="mini-title">
+
+        A LITTLE COLLECTION OF MEMORIES
+
+    </div>
+
+
+    <h1>
+
+        சில வார்த்தைகள்...
+
+    </h1>
+
+
+    <p>
+
+        சில உணர்வுகளை ஒரு வார்த்தையில்
+        சொல்ல முடியாது...
+        அதனால் இந்த சிறிய கவிதை.
+
+    </p>
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 01
+========================================= -->
+
+<section class="chapter reveal">
+
+
+    <div class="chapter-text">
+
+        <div class="chapter-number">
+
+            CHAPTER 01 • ஒரு அழகான தொடக்கம்
+
+        </div>
+
+
+        <h2>
+
+            முதல் நினைவு
+
+        </h2>
+
+
+        <div class="poem">
+
+            வாழ்க்கையில் பல நாட்கள்
+            வந்து போகின்றன...
+
+            <br><br>
+
+            ஆனால் சில நாட்கள் மட்டும்
+            <span>நினைவாக மாறுகின்றன.</span>
+
+            <br><br>
+
+            எதிர்பாராமல் கிடைத்த சில
+            சந்திப்புகள்,
+            சில சிறிய சிரிப்புகள்,
+            சில அழகான தருணங்கள்...
+
+            <br><br>
+
+            அவை அனைத்தும் சேர்ந்து
+            ஒரு அழகான நினைவாக
+            மனதில் தங்கிவிடுகின்றன.
+
+        </div>
+
+    </div>
+
+
+    <div class="visual">
+
+        <img
+            src="./images/kavithai1.jpeg"
+            alt="Kavithai Memory 1"
+            class="memory-photo k1"
+        >
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 02
+========================================= -->
+
+<section class="chapter reveal">
+
+
+    <div class="visual">
+
+        <div class="photo-frame">
+
+            <div class="photo-inside">
+
+                <img
+                    src="./images/kavithai2.jpeg"
+                    alt="Kavithai Memory 2"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="chapter-text">
+
+        <div class="chapter-number">
+
+            CHAPTER 02 • நினைவுகள்
+
+        </div>
+
+
+        <h2>
+
+            சிறிய தருணங்கள்
+
+        </h2>
+
+
+        <div class="poem">
+
+            பெரிய நிகழ்வுகள் மட்டும்
+            நினைவாக இருப்பதில்லை...
+
+            <br><br>
+
+            ஒரு சிறிய உரையாடல்,
+            ஒரு சின்ன சிரிப்பு,
+            எதிர்பாராத ஒரு சந்தோஷம்...
+
+            <br><br>
+
+            இப்படிப்பட்ட
+            <span>சிறிய தருணங்கள்தான்</span>
+            சில நேரங்களில்
+            வாழ்க்கையின் அழகான
+            நினைவுகளாக மாறுகின்றன.
+
+            <br><br>
+
+            காலம் கடந்தாலும்
+            அந்த நினைவுகளின்
+            அழகு மட்டும் மாறுவதில்லை.
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================
+     QUOTE 01
+========================================= -->
+
+<section class="quote reveal">
+
+    <p>
+
+        சில நினைவுகள்...
+        மறக்க முடியாத அளவிற்கு
+        அழகாக இருக்கும்.
+
+    </p>
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 03
+========================================= -->
+
+<section class="chapter reveal">
+
+
+    <div class="chapter-text">
+
+        <div class="chapter-number">
+
+            CHAPTER 03 • நீங்கள்
+
+        </div>
+
+
+        <h2>
+
+            நீங்கள் ஒரு அழகான மனிதர்
+
+        </h2>
+
+
+        <div class="poem">
+
+            ஒருவரின் அழகு என்பது
+            தோற்றத்தில் மட்டும் இல்லை...
+
+            <br><br>
+
+            அவர்களின்
+            <span>
+                மனம்,
+                அன்பு,
+                அக்கறை,
+                திறமை
+            </span>
+
+            மற்றும்
+            அவர்களின் கனவுகளிலும்
+            இருக்கிறது.
+
+            <br><br>
+
+            உங்கள் நல்ல மனமும்,
+            அன்பான அணுகுமுறையும்,
+            பல திறமைகளும்
+            உங்களை தனித்துவமாக
+            மாற்றுகின்றன.
+
+            <br><br>
+
+            எப்போதும் போலவே
+            உங்கள் அழகான
+            மனதை காப்பாற்றுங்கள்.
+
+        </div>
+
+    </div>
+
+
+    <div class="visual">
+
+        <img
+            src="./images/kavithai3.jpeg"
+            alt="Kavithai Memory 3"
+            class="memory-photo k3"
+        >
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 04
+========================================= -->
+
+<section class="chapter reveal">
+
+
+    <div class="visual">
+
+        <img
+            src="./images/kavithai4.jpeg"
+            alt="Kavithai Memory 4"
+            class="memory-photo"
+        >
+
+    </div>
+
+
+    <div class="chapter-text">
+
+        <div class="chapter-number">
+
+            CHAPTER 04 • உங்கள் கனவு
+
+        </div>
+
+
+        <h2>
+
+            கனவு பெரியதாக இருக்கட்டும்
+
+        </h2>
+
+
+        <div class="poem">
+
+            ஒரு கனவு என்பது
+            நினைப்பதற்காக மட்டும் அல்ல...
+
+            <br><br>
+
+            அதை அடைய
+            <span>
+                கற்றலும்,
+                முயற்சியும்,
+                பொறுமையும்,
+                உழைப்பும்
+            </span>
+
+            தேவை.
+
+            <br><br>
+
+            உங்கள் இலக்கு
+            எவ்வளவு பெரியதாக
+            இருந்தாலும்...
+
+            <br><br>
+
+            ஒவ்வொரு நாளும்
+            ஒரு சிறிய படி
+            முன்னேறினால்,
+            ஒரு நாள் அந்த கனவு
+            நிச்சயம் நிஜமாகும்.
+
+            <br><br>
+
+            <span>
+
+                உங்கள் IAS கனவை
+                தொடர்ந்து நோக்கி
+                முன்னேறுங்கள்.
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================
+     CHAPTER 05
+========================================= -->
+
+<section class="chapter reveal">
+
+
+    <div class="chapter-text">
+
+        <div class="chapter-number">
+
+            CHAPTER 05 • பிறந்தநாள் வாழ்த்து
+
+        </div>
+
+
+        <h2>
+
+            இந்த நாள் உங்களுக்காக
+
+        </h2>
+
+
+        <div class="poem">
+
+            இன்று ஒரு புதிய வயது மட்டும்
+            தொடங்கவில்லை...
+
+            <br><br>
+
+            இன்னும் பல அழகான
+            <span>
+                நினைவுகளும்,
+                வாய்ப்புகளும்,
+                கனவுகளும்
+            </span>
+
+            நிறைந்த ஒரு புதிய
+            அத்தியாயமும் தொடங்குகிறது.
+
+            <br><br>
+
+            உங்கள் வாழ்க்கையில்
+            மகிழ்ச்சி குறையாமல்,
+            உங்கள் முகத்தில்
+            சிரிப்பு மறையாமல்,
+            உங்கள் கனவுகள்
+            ஒவ்வொன்றாக நனவாகட்டும்.
+
+            <br><br>
+
+            இந்த பிறந்தநாள்
+            உங்கள் வாழ்க்கையின்
+            மிக அழகான
+            நினைவுகளில் ஒன்றாக
+            இருக்கட்டும்.
+
+        </div>
+
+    </div>
+
+
+    <div class="visual">
+
+        <img
+            src="./images/kavithai5.jpeg"
+            alt="Kavithai Memory 5"
+            class="memory-photo"
+        >
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================
+     FINAL QUOTE
+========================================= -->
+
+<section class="quote reveal">
+
+    <p>
+
+        உங்கள் வாழ்க்கையின்
+        அழகான அத்தியாயங்கள்
+        இன்னும் எழுதப்படவில்லை...
+
+    </p>
+
+</section>
+
+
+<!-- =========================================
+     GRAND FINALE
+========================================= -->
+
+<section class="final reveal">
+
+
+    <!-- PARTICLES -->
+
+    <div class="final-particle"></div>
+    <div class="final-particle"></div>
+    <div class="final-particle"></div>
+    <div class="final-particle"></div>
+    <div class="final-particle"></div>
+    <div class="final-particle"></div>
+    <div class="final-particle"></div>
+    <div class="final-particle"></div>
+
+
+    <div class="final-content">
+
+
+        <div class="final-small">
+
+            ✦ ONE LAST WISH ✦
+
+        </div>
+
+
+        <h2>
+
+            HAPPY<br>
+
+            BIRTHDAY
+
+        </h2>
+
+
+        <div class="final-name">
+
+            SARANYA SRI
+
+        </div>
+
+
+        <div class="final-message">
+
+            உங்கள் வாழ்க்கையில்
+            மகிழ்ச்சி நிறைந்த
+            நாட்களும்,
+            அழகான நினைவுகளும்,
+            புதிய வாய்ப்புகளும்,
+            உங்கள் கனவுகளை நோக்கி
+            செல்லும் வெற்றிப் பாதையும்
+            எப்போதும் இருக்கட்டும்.
+
+        </div>
+
+
+        <div class="final-wish">
+
+            ✨ உங்கள் கனவுகள் அனைத்தும்
+            நனவாகட்டும் ✨
+
+        </div>
+
+
+        <button
+            type="button"
+            class="continue"
+            onclick="goNext()"
+        >
+
+            CONTINUE THE JOURNEY →
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+<script>
+
+/* =========================================
+   CREATE STARS
+========================================= */
+
+for(let i = 0; i < 130; i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "vw";
+
+    star.style.top =
+        Math.random() * 100 + "vh";
+
+    star.style.setProperty(
+        "--duration",
+        (1.5 + Math.random() * 4) + "s"
+    );
+
+    star.style.animationDelay =
+        Math.random() * 5 + "s";
+
+    document.body.appendChild(star);
+
+}
+
+
+/* =========================================
+   CREATE HEARTS
+========================================= */
+
+for(let i = 0; i < 40; i++){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "♥";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.setProperty(
+        "--size",
+        (7 + Math.random() * 13) + "px"
+    );
+
+    heart.style.setProperty(
+        "--duration",
+        (8 + Math.random() * 9) + "s"
+    );
+
+    heart.style.setProperty(
+        "--move",
+        (-70 + Math.random() * 140) + "px"
+    );
+
+    heart.style.animationDelay =
+        (-Math.random() * 15) + "s";
+
+    document.body.appendChild(heart);
+
+}
+
+
+/* =========================================
+   FINAL PARTICLES
+========================================= */
+
+const particles =
+    document.querySelectorAll(
+        ".final-particle"
+    );
+
+
+particles.forEach(p => {
+
+    p.style.left =
+        Math.random() * 100 + "%";
+
+    p.style.setProperty(
+        "--time",
+        (5 + Math.random() * 6) + "s"
+    );
+
+    p.style.animationDelay =
+        (-Math.random() * 8) + "s";
+
+});
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add(
+                        "show"
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: .15
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================
+   NEXT PAGE
+   KAVITHAI → WISHES
+========================================= */
+
+function goNext(){
+
+    const final =
+        document.querySelector(".final");
+
+
+    final.style.transition =
+        "1s ease";
+
+
+    final.style.transform =
+        "scale(1.08)";
+
+
+    final.style.opacity =
+        "0";
+
+
+    setTimeout(() => {
+
+        window.location.href =
+            "wishes.html";
+
+    }, 1000);
+
+}
+
+</script>
+
+
+</body>
+
+</html>

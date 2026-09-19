@@ -1,0 +1,2389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How Well Do You Know Saranya Sri?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    min-height:100%;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    color:#641d43;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #fff0f7,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #eadbff,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #ffd8e9,
+            #f8c4dc,
+            #ead5f5,
+            #ffdce9
+        );
+
+}
+
+
+/* =========================================
+   FLOATING BACKGROUND
+========================================= */
+
+.background-heart{
+
+    position:fixed;
+
+    bottom:-30px;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    color:#ff72a9;
+
+    opacity:.35;
+
+    animation:
+        floatHeart
+        var(--duration)
+        linear
+        infinite;
+
+}
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:.35;
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-50vh)
+            translateX(var(--move))
+            rotate(20deg)
+            scale(1);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(-115vh)
+            translateX(calc(var(--move) * -1))
+            rotate(-20deg)
+            scale(.8);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page{
+
+    min-height:100vh;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:35px 18px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.quiz-card{
+
+    width:100%;
+
+    max-width:850px;
+
+    padding:38px;
+
+    border-radius:35px;
+
+    background:
+        rgba(255,255,255,.62);
+
+    border:
+        1px solid
+        rgba(255,255,255,.75);
+
+    backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(120,45,90,.18),
+
+        inset 0 1px 0
+        rgba(255,255,255,.8);
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:
+        cardAppear
+        1s
+        ease;
+
+}
+
+@keyframes cardAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(40px)
+            scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   TOP
+========================================= */
+
+.top-line{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#a04470;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+.top-line span{
+
+    width:55px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d875a2
+        );
+
+}
+
+.top-line span:last-child{
+
+    background:
+        linear-gradient(
+            90deg,
+            #d875a2,
+            transparent
+        );
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.title{
+
+    text-align:center;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            62px
+        );
+
+    line-height:1;
+
+    color:#641d43;
+
+    margin-bottom:8px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#91516f;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-area{
+
+    margin-bottom:28px;
+
+}
+
+.progress-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    color:#884466;
+
+}
+
+.progress-bg{
+
+    width:100%;
+
+    height:8px;
+
+    background:
+        rgba(160,70,110,.12);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progress-bar{
+
+    height:100%;
+
+    width:5%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ef75aa,
+            #b77bea,
+            #ef75aa
+        );
+
+    background-size:200%;
+
+    transition:
+        width
+        .5s
+        cubic-bezier(.2,.8,.2,1);
+
+    animation:
+        progressGlow
+        3s
+        linear
+        infinite;
+
+}
+
+@keyframes progressGlow{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:200%;
+    }
+
+}
+
+
+/* =========================================
+   QUESTION NUMBER
+========================================= */
+
+.question-number{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:85px;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    background:
+        #ffe2ef;
+
+    color:#a13f6b;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:15px;
+
+}
+
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.question{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            40px
+        );
+
+    line-height:1.15;
+
+    color:#5e193d;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =========================================
+   OPTIONS
+========================================= */
+
+.options{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:14px;
+
+}
+
+.option{
+
+    width:100%;
+
+    padding:17px 18px;
+
+    border-radius:18px;
+
+    border:
+        1px solid
+        rgba(145,65,105,.16);
+
+    background:
+        rgba(255,255,255,.72);
+
+    color:#6e284c;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:13px;
+
+    font-weight:500;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:
+        .25s
+        ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.option::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,120,175,.10),
+            transparent
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:.5s;
+
+}
+
+.option:hover{
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(220,95,145,.45);
+
+    box-shadow:
+        0 10px 25px
+        rgba(150,60,105,.12);
+
+}
+
+.option:hover::before{
+
+    transform:
+        translateX(100%);
+
+}
+
+
+/* option letter */
+
+.option-letter{
+
+    display:inline-flex;
+
+    width:28px;
+    height:28px;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    margin-right:10px;
+
+    background:
+        #ffe3ef;
+
+    color:#a43e6c;
+
+    font-size:11px;
+
+    font-weight:700;
+
+}
+
+
+/* =========================================
+   CORRECT
+========================================= */
+
+.option.correct{
+
+    border-color:#62bd91;
+
+    background:
+        #e7faef;
+
+    color:#24734e;
+
+    animation:
+        correctPop
+        .55s
+        ease;
+
+}
+
+.option.correct .option-letter{
+
+    background:#bcefd1;
+
+    color:#26734f;
+
+}
+
+@keyframes correctPop{
+
+    0%{
+        transform:scale(1);
+    }
+
+    40%{
+        transform:scale(1.04);
+    }
+
+    70%{
+        transform:scale(.98);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+
+/* =========================================
+   WRONG
+========================================= */
+
+.option.wrong{
+
+    border-color:#f0a0b9;
+
+    background:
+        #fff0f4;
+
+    color:#a04a68;
+
+    animation:
+        gentleShake
+        .45s
+        ease;
+
+}
+
+.option.wrong .option-letter{
+
+    background:#ffd4e1;
+
+    color:#a04a68;
+
+}
+
+@keyframes gentleShake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-5px);
+    }
+
+    50%{
+        transform:translateX(5px);
+    }
+
+    75%{
+        transform:translateX(-3px);
+    }
+
+}
+
+
+/* =========================================
+   FEEDBACK
+========================================= */
+
+.feedback{
+
+    min-height:55px;
+
+    margin-top:20px;
+
+    padding:0 10px;
+
+    text-align:center;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    font-weight:600;
+
+    opacity:0;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        .35s
+        ease;
+
+}
+
+.feedback.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+.feedback.correct-feedback{
+
+    color:#287a54;
+
+}
+
+.feedback.wrong-feedback{
+
+    color:#a24b6b;
+
+}
+
+
+/* =========================================
+   NEXT BUTTON
+========================================= */
+
+.next-btn{
+
+    display:block;
+
+    margin:
+        8px
+        auto
+        0;
+
+    padding:
+        14px
+        34px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e76fa4,
+            #ad76dd
+        );
+
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 12px 30px
+        rgba(180,75,135,.22);
+
+    transition:.3s;
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+.next-btn.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+.next-btn:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 16px 35px
+        rgba(180,75,135,.3);
+
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.bottom-note{
+
+    text-align:center;
+
+    margin-top:22px;
+
+    color:#a2637f;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+}
+
+
+/* =========================================
+   CUTE POP PARTICLES
+========================================= */
+
+.pop-heart{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    z-index:100;
+
+    font-size:18px;
+
+    animation:
+        popHeart
+        1s
+        ease-out
+        forwards;
+
+}
+
+@keyframes popHeart{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+            translate(0,0)
+            scale(.5);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(
+                var(--rotate)
+            )
+            scale(1.2);
+
+    }
+
+}
+
+
+/* =========================================
+   FINAL SCREEN
+========================================= */
+
+.result-screen{
+
+    display:none;
+
+    text-align:center;
+
+    animation:
+        resultAppear
+        1s
+        ease;
+
+}
+
+.result-screen.show{
+
+    display:block;
+
+}
+
+@keyframes resultAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.85);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+.result-icon{
+
+    font-size:70px;
+
+    margin-bottom:15px;
+
+    animation:
+        resultBounce
+        1.5s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes resultBounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+
+.result-title{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            65px
+        );
+
+    color:#641d43;
+
+}
+
+.score{
+
+    margin:
+        15px
+        auto;
+
+    font-size:25px;
+
+    font-weight:700;
+
+    color:#a03f6b;
+
+}
+
+.result-message{
+
+    max-width:550px;
+
+    margin:auto;
+
+    color:#81506a;
+
+    font-size:13px;
+
+    line-height:1.9;
+
+}
+
+
+/* =========================================
+   FINAL BUTTON
+========================================= */
+
+.final-btn{
+
+    margin-top:25px;
+
+    padding:
+        15px
+        35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e76fa4,
+            #ad76dd
+        );
+
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.final-btn:hover{
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:650px){
+
+    .page{
+
+        padding:
+            18px 12px;
+
+        align-items:
+            flex-start;
+
+        padding-top:25px;
+
+    }
+
+    .quiz-card{
+
+        padding:
+            25px 18px;
+
+        border-radius:28px;
+
+    }
+
+    .options{
+
+        grid-template-columns:
+            1fr;
+
+        gap:10px;
+
+    }
+
+    .option{
+
+        padding:14px;
+
+    }
+
+    .question{
+
+        font-size:30px;
+
+    }
+
+    .title{
+
+        font-size:40px;
+
+    }
+
+}
+
+
+/* =========================================
+   CONFETTI CANVAS
+========================================= */
+
+#confetti{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:90;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<canvas id="confetti"></canvas>
+
+
+<!-- FLOATING HEARTS -->
+
+<script>
+
+for(let i=0;i<35;i++){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className=
+        "background-heart";
+
+    heart.innerHTML=
+        Math.random() > .5
+        ? "♥"
+        : "♡";
+
+    heart.style.left=
+        Math.random()*100+"vw";
+
+    heart.style.fontSize=
+        (8+Math.random()*15)+"px";
+
+    heart.style.setProperty(
+        "--duration",
+        (9+Math.random()*10)+"s"
+    );
+
+    heart.style.setProperty(
+        "--move",
+        (-50+Math.random()*100)+"px"
+    );
+
+    heart.style.animationDelay=
+        (-Math.random()*15)+"s";
+
+    document.body.appendChild(heart);
+
+}
+
+</script>
+
+
+<div class="page">
+
+<div class="quiz-card">
+
+
+<!-- =====================================
+     QUIZ SECTION
+===================================== -->
+
+<div id="quizSection">
+
+
+    <div class="top-line">
+
+        <span></span>
+
+        ✦ A LITTLE QUIZ ✦
+
+        <span></span>
+
+    </div>
+
+
+    <h1 class="title">
+
+        How Well Do You Know<br>
+        Saranya Sri?
+
+    </h1>
+
+
+    <p class="subtitle">
+
+        Let's see how many little details
+        you remember about Saranya Sri. 💗
+
+    </p>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress-area">
+
+        <div class="progress-info">
+
+            <span id="progressText">
+                Question 1 of 20
+            </span>
+
+            <span id="scoreText">
+                Score: 0
+            </span>
+
+        </div>
+
+
+        <div class="progress-bg">
+
+            <div
+                class="progress-bar"
+                id="progressBar"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION NUMBER -->
+
+    <div
+        class="question-number"
+        id="questionNumber"
+    >
+
+        QUESTION 01
+
+    </div>
+
+
+    <!-- QUESTION -->
+
+    <div
+        class="question"
+        id="question"
+    ></div>
+
+
+    <!-- OPTIONS -->
+
+    <div
+        class="options"
+        id="options"
+    ></div>
+
+
+    <!-- FEEDBACK -->
+
+    <div
+        class="feedback"
+        id="feedback"
+    ></div>
+
+
+    <!-- NEXT -->
+
+    <button
+        class="next-btn"
+        id="nextBtn"
+        onclick="nextQuestion()"
+    >
+
+        NEXT QUESTION&nbsp; →
+
+    </button>
+
+
+    <div class="bottom-note">
+
+        ✦ TAKE YOUR TIME • THERE'S NO PRESSURE ✦
+
+    </div>
+
+
+</div>
+
+
+<!-- =====================================
+     RESULT SECTION
+===================================== -->
+
+<div
+    class="result-screen"
+    id="resultScreen"
+>
+
+    <div
+        class="result-icon"
+        id="resultIcon"
+    >
+        🎀
+    </div>
+
+
+    <div class="result-title">
+
+        Quiz Complete!
+
+    </div>
+
+
+    <div
+        class="score"
+        id="finalScore"
+    >
+
+        0 / 20
+
+    </div>
+
+
+    <div
+        class="result-message"
+        id="resultMessage"
+    ></div>
+
+
+    <button
+        class="final-btn"
+        onclick="goToAbout()"
+    >
+
+        CONTINUE THE JOURNEY&nbsp; ✨
+
+    </button>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==================================================
+   QUESTIONS
+================================================== */
+
+const questions = [
+
+    {
+        question:
+        "When did Saranya Sri join college for the first time?",
+
+        options:[
+            "09/09/2024",
+            "15/08/2024",
+            "02/09/2024",
+            "10/09/2024"
+        ],
+
+        answer:"09/09/2024"
+    },
+
+
+    {
+        question:
+        "What was the colour of the dress Saranya Sri wore for her first birthday celebration in college?",
+
+        options:[
+            "Pink & Black",
+            "White & Violet",
+            "Blue & White",
+            "Red & Cream"
+        ],
+
+        answer:"White & Violet"
+    },
+
+
+    {
+        question:
+        "How would you describe Saranya Sri's personality?",
+
+        options:[
+            "A multi-talented person",
+            "A very quiet person",
+            "A serious person",
+            "A highly competitive person"
+        ],
+
+        answer:"A multi-talented person"
+    },
+
+
+    {
+        question:
+        "What is Saranya Sri's career goal?",
+
+        options:[
+            "Software Engineer",
+            "Doctor",
+            "IAS Officer",
+            "Professor"
+        ],
+
+        answer:"IAS Officer"
+    },
+
+
+    {
+        question:
+        "How would you describe Saranya Sri as a person?",
+
+        options:[
+            "Very cute and caring",
+            "Very serious and strict",
+            "Very quiet and reserved",
+            "Very adventurous and bold"
+        ],
+
+        answer:"Very cute and caring"
+    },
+
+
+    {
+        question:
+        "Which quality makes Saranya Sri special to the people around her?",
+
+        options:[
+            "Her caring nature",
+            "Her competitive nature",
+            "Her seriousness",
+            "Her impatience"
+        ],
+
+        answer:"Her caring nature"
+    },
+
+
+    {
+        question:
+        "Which kind of achievement would make Saranya Sri happiest?",
+
+        options:[
+            "Becoming an IAS Officer",
+            "Winning a sports trophy",
+            "Becoming a famous singer",
+            "Travelling around the world"
+        ],
+
+        answer:"Becoming an IAS Officer"
+    },
+
+
+    {
+        question:
+        "What kind of person is Saranya Sri when it comes to learning new things?",
+
+        options:[
+            "Interested in learning",
+            "Never interested",
+            "Always avoids challenges",
+            "Only likes easy tasks"
+        ],
+
+        answer:"Interested in learning"
+    },
+
+
+    {
+        question:
+        "Which word best represents Saranya Sri's dreams?",
+
+        options:[
+            "Ambition",
+            "Fear",
+            "Doubt",
+            "Confusion"
+        ],
+
+        answer:"Ambition"
+    },
+
+
+    {
+        question:
+        "What is one quality that can help Saranya Sri reach her IAS dream?",
+
+        options:[
+            "Dedication",
+            "Giving up easily",
+            "Avoiding hard work",
+            "Ignoring challenges"
+        ],
+
+        answer:"Dedication"
+    },
+
+
+    {
+        question:
+        "Which type of memories are usually the most special?",
+
+        options:[
+            "Happy memories shared with special people",
+            "Only expensive gifts",
+            "Only photographs",
+            "Only travel memories"
+        ],
+
+        answer:"Happy memories shared with special people"
+    },
+
+
+    {
+        question:
+        "What makes a birthday truly memorable?",
+
+        options:[
+            "The people and memories that make the day special",
+            "Only the decorations",
+            "Only the cake",
+            "Only the presents"
+        ],
+
+        answer:
+        "The people and memories that make the day special"
+    },
+
+
+    {
+        question:
+        "Which quality is especially important for someone who dreams of becoming an IAS Officer?",
+
+        options:[
+            "Responsibility",
+            "Carelessness",
+            "Giving up",
+            "Avoiding decisions"
+        ],
+
+        answer:"Responsibility"
+    },
+
+
+    {
+        question:
+        "Which word best describes someone who can do many things well?",
+
+        options:[
+            "Multi-talented",
+            "Careless",
+            "Unfocused",
+            "Uninterested"
+        ],
+
+        answer:"Multi-talented"
+    },
+
+
+    {
+        question:
+        "What kind of attitude can help Saranya Sri achieve her future goals?",
+
+        options:[
+            "Positive and determined",
+            "Negative and doubtful",
+            "Careless and relaxed",
+            "Fearful and uncertain"
+        ],
+
+        answer:"Positive and determined"
+    },
+
+
+    {
+        question:
+        "What should Saranya Sri always keep while chasing her dreams?",
+
+        options:[
+            "Confidence",
+            "Fear",
+            "Doubt",
+            "Negativity"
+        ],
+
+        answer:"Confidence"
+    },
+
+
+    {
+        question:
+        "What is more important on the journey towards a big dream?",
+
+        options:[
+            "Consistency and hard work",
+            "Giving up quickly",
+            "Waiting for luck",
+            "Avoiding difficult situations"
+        ],
+
+        answer:"Consistency and hard work"
+    },
+
+
+    {
+        question:
+        "Which combination best describes a person with a bright future?",
+
+        options:[
+            "Dreams + Hard Work + Dedication",
+            "Dreams + Laziness + Doubt",
+            "Luck + Fear + Confusion",
+            "Talent + Giving Up + Negativity"
+        ],
+
+        answer:"Dreams + Hard Work + Dedication"
+    },
+
+
+    {
+        question:
+        "What would be a beautiful wish for Saranya Sri's future?",
+
+        options:[
+            "May every dream become reality",
+            "May every day be difficult",
+            "May every challenge stop her",
+            "May she never take new opportunities"
+        ],
+
+        answer:"May every dream become reality"
+    },
+
+
+    {
+        question:
+        "What is the best way to describe this little birthday quiz?",
+
+        options:[
+            "A cute collection of memories and wishes",
+            "A difficult examination",
+            "A serious competition",
+            "A test with no fun"
+        ],
+
+        answer:"A cute collection of memories and wishes"
+    }
+
+];
+
+
+/* ==================================================
+   VARIABLES
+================================================== */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let answered = false;
+
+
+/* ==================================================
+   ELEMENTS
+================================================== */
+
+const questionElement =
+    document.getElementById("question");
+
+const optionsElement =
+    document.getElementById("options");
+
+const feedbackElement =
+    document.getElementById("feedback");
+
+const nextButton =
+    document.getElementById("nextBtn");
+
+const progressText =
+    document.getElementById("progressText");
+
+const scoreText =
+    document.getElementById("scoreText");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+
+/* ==================================================
+   SHUFFLE
+================================================== */
+
+function shuffle(array){
+
+    const newArray =
+        [...array];
+
+    for(
+        let i=newArray.length-1;
+        i>0;
+        i--
+    ){
+
+        const j =
+            Math.floor(
+                Math.random()*(i+1)
+            );
+
+        [
+            newArray[i],
+            newArray[j]
+        ] =
+        [
+            newArray[j],
+            newArray[i]
+        ];
+
+    }
+
+    return newArray;
+
+}
+
+
+/* ==================================================
+   LOAD QUESTION
+================================================== */
+
+function loadQuestion(){
+
+    answered=false;
+
+    feedbackElement.className=
+        "feedback";
+
+    feedbackElement.innerHTML="";
+
+    nextButton.classList.remove("show");
+
+
+    const q =
+        questions[currentQuestion];
+
+
+    questionNumber.textContent =
+        "QUESTION " +
+        String(currentQuestion+1)
+        .padStart(2,"0");
+
+
+    questionElement.textContent =
+        q.question;
+
+
+    progressText.textContent =
+        `Question ${currentQuestion+1} of ${questions.length}`;
+
+
+    scoreText.textContent =
+        `Score: ${score}`;
+
+
+    const progress =
+        ((currentQuestion+1)/
+        questions.length)*100;
+
+
+    progressBar.style.width =
+        progress+"%";
+
+
+    optionsElement.innerHTML="";
+
+
+    /*
+       IMPORTANT:
+       Answers are shuffled
+    */
+
+    const shuffledOptions =
+        shuffle(q.options);
+
+
+    shuffledOptions.forEach(
+        (option,index)=>{
+
+            const button =
+                document.createElement("button");
+
+            button.className=
+                "option";
+
+
+            button.innerHTML=
+                `
+                <span class="option-letter">
+                    ${String.fromCharCode(65+index)}
+                </span>
+
+                ${option}
+                `;
+
+
+            button.onclick=()=>{
+
+                selectAnswer(
+                    button,
+                    option,
+                    q.answer
+                );
+
+            };
+
+
+            optionsElement.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   SELECT ANSWER
+================================================== */
+
+function selectAnswer(
+    selectedButton,
+    selectedAnswer,
+    correctAnswer
+){
+
+    if(answered){
+
+        return;
+
+    }
+
+
+    answered=true;
+
+
+    const allOptions =
+        document.querySelectorAll(
+            ".option"
+        );
+
+
+    allOptions.forEach(
+        button=>{
+            button.style.pointerEvents=
+                "none";
+        }
+    );
+
+
+    if(selectedAnswer === correctAnswer){
+
+        score++;
+
+
+        selectedButton.classList.add(
+            "correct"
+        );
+
+
+        feedbackElement.className=
+            "feedback correct-feedback show";
+
+
+        feedbackElement.innerHTML=
+            "✨ Wonderful! You know Saranya Sri really well! 💕";
+
+
+        createCutePop(
+            selectedButton
+        );
+
+    }
+
+    else{
+
+        selectedButton.classList.add(
+            "wrong"
+        );
+
+
+        /*
+           Show correct answer
+        */
+
+        allOptions.forEach(
+            button=>{
+
+                if(
+                    button.textContent
+                    .trim()
+                    .includes(correctAnswer)
+                ){
+
+                    button.classList.add(
+                        "correct"
+                    );
+
+                }
+
+            }
+        );
+
+
+        feedbackElement.className=
+            "feedback wrong-feedback show";
+
+
+        feedbackElement.innerHTML=
+            "🌸 Not quite! That's okay — nice try! Keep going! 💗";
+
+
+        createCutePop(
+            selectedButton
+        );
+
+    }
+
+
+    scoreText.textContent=
+        `Score: ${score}`;
+
+
+    nextButton.classList.add(
+        "show"
+    );
+
+}
+
+
+/* ==================================================
+   NEXT QUESTION
+================================================== */
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+
+    if(
+        currentQuestion >=
+        questions.length
+    ){
+
+        showResult();
+
+        return;
+
+    }
+
+
+    loadQuestion();
+
+}
+
+
+/* ==================================================
+   CUTE POP
+================================================== */
+
+function createCutePop(element){
+
+    const rect =
+        element.getBoundingClientRect();
+
+
+    const symbols=[
+        "♥",
+        "♡",
+        "✦",
+        "✧",
+        "✨"
+    ];
+
+
+    for(let i=0;i<10;i++){
+
+        const pop =
+            document.createElement("div");
+
+        pop.className=
+            "pop-heart";
+
+        pop.innerHTML=
+            symbols[
+                Math.floor(
+                    Math.random()*
+                    symbols.length
+                )
+            ];
+
+
+        pop.style.left=
+            (
+                rect.left+
+                rect.width/2
+            )+"px";
+
+
+        pop.style.top=
+            (
+                rect.top+
+                rect.height/2
+            )+"px";
+
+
+        pop.style.setProperty(
+            "--x",
+            (-80+Math.random()*160)+"px"
+        );
+
+
+        pop.style.setProperty(
+            "--y",
+            (-100-Math.random()*100)+"px"
+        );
+
+
+        pop.style.setProperty(
+            "--rotate",
+            (-45+Math.random()*90)+"deg"
+        );
+
+
+        document.body.appendChild(
+            pop
+        );
+
+
+        setTimeout(
+            ()=>{
+                pop.remove();
+            },
+            1100
+        );
+
+    }
+
+}
+
+
+/* ==================================================
+   RESULT
+================================================== */
+
+function showResult(){
+
+    document.getElementById(
+        "quizSection"
+    ).style.display="none";
+
+
+    const resultScreen =
+        document.getElementById(
+            "resultScreen"
+        );
+
+
+    resultScreen.classList.add(
+        "show"
+    );
+
+
+    document.getElementById(
+        "finalScore"
+    ).textContent=
+        `${score} / ${questions.length}`;
+
+
+    const icon =
+        document.getElementById(
+            "resultIcon"
+        );
+
+    const message =
+        document.getElementById(
+            "resultMessage"
+        );
+
+
+    if(score === 20){
+
+        icon.textContent="👑";
+
+        message.innerHTML=
+            `
+            <strong>Absolutely amazing! ✨</strong>
+            <br><br>
+            You got every answer right!
+            You really know Saranya Sri so well. 💖
+            <br><br>
+            That's a perfect score worth celebrating! 🎀
+            `;
+
+    }
+
+    else if(score >= 16){
+
+        icon.textContent="🌷";
+
+        message.innerHTML=
+            `
+            <strong>Wow, that's wonderful! 💕</strong>
+            <br><br>
+            You know Saranya Sri really well.
+            So many memories were clearly remembered! ✨
+            `;
+
+    }
+
+    else if(score >= 11){
+
+        icon.textContent="💗";
+
+        message.innerHTML=
+            `
+            <strong>That's really sweet! 🌸</strong>
+            <br><br>
+            You remembered quite a lot.
+            And the little things you missed can always
+            become new memories to remember! 💫
+            `;
+
+    }
+
+    else{
+
+        icon.textContent="🌼";
+
+        message.innerHTML=
+            `
+            <strong>Nice try! 💕</strong>
+            <br><br>
+            Don't worry about the score.
+            This quiz is all about enjoying the memories
+            and celebrating a special day. 🌷
+            <br><br>
+            Keep smiling and keep going! ✨
+            `;
+
+    }
+
+
+    startConfetti();
+
+}
+
+
+/* ==================================================
+   GO TO ABOUT PAGE
+================================================== */
+
+function goToAbout(){
+
+    window.location.href=
+        "about.html";
+
+}
+
+
+/* ==================================================
+   CONFETTI
+================================================== */
+
+const confettiCanvas =
+    document.getElementById(
+        "confetti"
+    );
+
+const confettiCtx =
+    confettiCanvas.getContext("2d");
+
+let confettiParticles=[];
+
+
+function resizeConfetti(){
+
+    confettiCanvas.width=
+        window.innerWidth;
+
+    confettiCanvas.height=
+        window.innerHeight;
+
+}
+
+resizeConfetti();
+
+
+window.addEventListener(
+    "resize",
+    resizeConfetti
+);
+
+
+function startConfetti(){
+
+    const symbols=[
+        "♥",
+        "✦",
+        "✧"
+    ];
+
+
+    for(let i=0;i<80;i++){
+
+        confettiParticles.push({
+
+            x:
+                Math.random()*
+                confettiCanvas.width,
+
+            y:
+                -20-
+                Math.random()*
+                confettiCanvas.height,
+
+            size:
+                5+
+                Math.random()*8,
+
+            speed:
+                1+
+                Math.random()*3,
+
+            drift:
+                -1+
+                Math.random()*2,
+
+            rotation:
+                Math.random()*
+                Math.PI*2,
+
+            rotationSpeed:
+                -.05+
+                Math.random()*.1,
+
+            symbol:
+                symbols[
+                    Math.floor(
+                        Math.random()*
+                        symbols.length
+                    )
+                ],
+
+            opacity:
+                .4+
+                Math.random()*.6
+
+        });
+
+    }
+
+
+    animateConfetti();
+
+}
+
+
+function animateConfetti(){
+
+    confettiCtx.clearRect(
+        0,
+        0,
+        confettiCanvas.width,
+        confettiCanvas.height
+    );
+
+
+    confettiParticles.forEach(
+        particle=>{
+
+            particle.y +=
+                particle.speed;
+
+            particle.x +=
+                particle.drift;
+
+            particle.rotation +=
+                particle.rotationSpeed;
+
+
+            confettiCtx.save();
+
+            confettiCtx.translate(
+                particle.x,
+                particle.y
+            );
+
+            confettiCtx.rotate(
+                particle.rotation
+            );
+
+            confettiCtx.globalAlpha=
+                particle.opacity;
+
+            confettiCtx.font=
+                `${particle.size*2}px serif`;
+
+            confettiCtx.fillText(
+                particle.symbol,
+                0,
+                0
+            );
+
+            confettiCtx.restore();
+
+
+            if(
+                particle.y >
+                confettiCanvas.height+30
+            ){
+
+                particle.y=-20;
+
+                particle.x=
+                    Math.random()*
+                    confettiCanvas.width;
+
+            }
+
+        }
+    );
+
+
+    requestAnimationFrame(
+        animateConfetti
+    );
+
+}
+
+
+/* ==================================================
+   START
+================================================== */
+
+loadQuestion();
+
+</script>
+
+
+</body>
+
+</html>

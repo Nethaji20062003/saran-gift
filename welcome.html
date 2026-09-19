@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday SARANYA SRI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==============================
+   RESET
+============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    background:#f4a5c5;
+}
+
+
+/* ==============================
+   LIGHT PINK BACKGROUND
+============================== */
+
+.background{
+
+    position:fixed;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #ffd9e8 0%,
+            #f9b8d1 22%,
+            #ee91b5 45%,
+            #d96d99 70%,
+            #a8426c 100%
+        );
+
+    z-index:-10;
+}
+
+
+/* ==============================
+   SOFT GLOW
+============================== */
+
+.background::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:750px;
+    height:750px;
+
+    left:50%;
+    top:45%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.35),
+            rgba(255,160,195,.16) 40%,
+            transparent 72%
+        );
+
+    filter:blur(15px);
+
+    animation:
+        softGlow
+        6s
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes softGlow{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            scale(.85);
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            scale(1.15);
+    }
+
+}
+
+
+/* ==============================
+   LIGHT EFFECTS
+============================== */
+
+.light{
+
+    position:fixed;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.20),
+            transparent 70%
+        );
+
+    filter:blur(8px);
+
+    pointer-events:none;
+}
+
+.light.one{
+
+    left:-120px;
+    top:-100px;
+
+    animation:
+        lightMoveOne
+        10s
+        ease-in-out
+        infinite alternate;
+}
+
+.light.two{
+
+    right:-120px;
+    bottom:-100px;
+
+    animation:
+        lightMoveTwo
+        12s
+        ease-in-out
+        infinite alternate;
+}
+
+@keyframes lightMoveOne{
+
+    to{
+        transform:
+            translate(150px,130px);
+    }
+
+}
+
+@keyframes lightMoveTwo{
+
+    to{
+        transform:
+            translate(-150px,-120px);
+    }
+
+}
+
+
+/* ==============================
+   STARS
+============================== */
+
+.star{
+
+    position:fixed;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 9px
+        rgba(255,255,255,.9);
+
+    animation:
+        twinkle
+        var(--time)
+        ease-in-out
+        infinite;
+
+    opacity:.4;
+
+    z-index:1;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.15;
+        transform:scale(.5);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+
+}
+
+
+/* ==================================================
+   PREMIUM FULL SCREEN HEARTS
+================================================== */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-30px;
+
+    color:#ff3f91;
+
+    font-size:var(--size);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:2;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(255,255,255,.45)
+        );
+
+    animation:
+        heartFloat
+        var(--duration)
+        linear
+        infinite;
+
+}
+
+
+/* Different heart brightness */
+
+.heart.soft{
+    color:#ff78ad;
+}
+
+.heart.light{
+    color:#ffd0e1;
+}
+
+.heart.bright{
+    color:#ff2f83;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(255,40,130,.75)
+        );
+}
+
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:var(--opacity);
+
+    }
+
+    45%{
+
+        transform:
+            translateY(-48vh)
+            translateX(var(--move))
+            rotate(15deg)
+            scale(1);
+
+    }
+
+    75%{
+
+        opacity:calc(var(--opacity) * .8);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(-120vh)
+            translateX(calc(var(--move) * -1))
+            rotate(-20deg)
+            scale(.8);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ==============================
+   MAIN PAGE
+============================== */
+
+.page{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    padding:20px;
+
+}
+
+
+/* ==============================
+   CONTENT
+============================== */
+
+.content{
+
+    width:90%;
+    max-width:950px;
+
+    position:relative;
+
+    z-index:10;
+
+    animation:
+        pageEntrance
+        1.8s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes pageEntrance{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(60px)
+            scale(.92);
+
+        filter:blur(12px);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:blur(0);
+
+    }
+
+}
+
+
+/* ==============================
+   TOP DECORATION
+============================== */
+
+.top-decoration{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    margin-bottom:25px;
+
+}
+
+.top-decoration span{
+
+    width:90px;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(90,23,56,.75)
+        );
+
+}
+
+.top-decoration span:last-child{
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(90,23,56,.75),
+            transparent
+        );
+
+}
+
+.top-decoration b{
+
+    font-size:11px;
+
+    color:#5a1738;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,255,255,.7);
+
+}
+
+
+/* ==============================
+   SMALL TITLE
+============================== */
+
+.small-title{
+
+    color:#681c42;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:7px;
+
+    margin-bottom:20px;
+
+    text-shadow:
+        0 1px 5px
+        rgba(255,255,255,.35);
+
+    animation:
+        letterReveal
+        2s
+        ease;
+
+}
+
+@keyframes letterReveal{
+
+    from{
+
+        opacity:0;
+
+        letter-spacing:15px;
+
+    }
+
+    to{
+
+        opacity:1;
+
+        letter-spacing:7px;
+
+    }
+
+}
+
+
+/* ==============================
+   MAIN TITLE
+============================== */
+
+h1{
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            65px,
+            10vw,
+            120px
+        );
+
+    line-height:.85;
+
+    font-weight:700;
+
+    color:#5a1738;
+
+    margin:0;
+
+    text-shadow:
+
+        0 2px 8px
+        rgba(255,255,255,.45),
+
+        0 0 25px
+        rgba(255,255,255,.25),
+
+        0 5px 20px
+        rgba(110,20,60,.15);
+
+    animation:
+        titleGlow
+        4s
+        ease-in-out
+        infinite alternate;
+
+}
+
+@keyframes titleGlow{
+
+    from{
+
+        text-shadow:
+
+            0 2px 8px
+            rgba(255,255,255,.35),
+
+            0 0 20px
+            rgba(255,255,255,.20);
+
+    }
+
+    to{
+
+        text-shadow:
+
+            0 2px 10px
+            rgba(255,255,255,.60),
+
+            0 0 35px
+            rgba(255,255,255,.30),
+
+            0 5px 20px
+            rgba(110,20,60,.15);
+
+    }
+
+}
+
+
+/* ==============================
+   NAME
+============================== */
+
+.name{
+
+    margin-top:18px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            72px
+        );
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    color:#681c42;
+
+    text-shadow:
+
+        0 2px 8px
+        rgba(255,255,255,.50),
+
+        0 0 25px
+        rgba(255,255,255,.25);
+
+}
+
+
+/* ==============================
+   CENTER HEART
+============================== */
+
+.center-heart{
+
+    margin:
+        25px
+        auto
+        20px;
+
+    width:30px;
+    height:30px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+.center-heart span{
+
+    font-size:22px;
+
+    color:#d72d78;
+
+    filter:
+        drop-shadow(
+            0 0 9px
+            #ff4f98
+        );
+
+    animation:
+        heartbeat
+        1.7s
+        ease-in-out
+        infinite;
+
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.18);
+    }
+
+}
+
+
+/* ==============================
+   DIVIDER
+============================== */
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin-bottom:23px;
+
+}
+
+.divider-line{
+
+    width:100px;
+    height:1px;
+
+}
+
+.divider-line.left{
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(90,23,56,.65)
+        );
+
+}
+
+.divider-line.right{
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(90,23,56,.65),
+            transparent
+        );
+
+}
+
+.divider-symbol{
+
+    color:#681c42;
+
+    font-size:10px;
+
+}
+
+
+/* ==============================
+   DESCRIPTION
+============================== */
+
+.description{
+
+    max-width:600px;
+
+    margin:auto;
+
+    color:#54213a;
+
+    font-size:14px;
+
+    line-height:2;
+
+    font-weight:400;
+
+    text-shadow:
+        0 1px 5px
+        rgba(255,255,255,.35);
+
+}
+
+.description strong{
+
+    color:#721d48;
+
+    font-weight:600;
+
+}
+
+
+/* ==============================
+   BUTTON
+============================== */
+
+.start{
+
+    margin-top:32px;
+
+    padding:
+        16px
+        40px;
+
+    border-radius:50px;
+
+    border:
+        1px solid
+        rgba(90,23,56,.45);
+
+    background:
+        rgba(255,255,255,.30);
+
+    color:#5a1738;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(8px);
+
+    box-shadow:
+
+        0 8px 30px
+        rgba(100,20,55,.15),
+
+        inset 0 1px 0
+        rgba(255,255,255,.5);
+
+    transition:.4s ease;
+
+}
+
+.start:hover{
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255,255,255,.55);
+
+    box-shadow:
+
+        0 15px 45px
+        rgba(120,20,65,.25),
+
+        0 0 25px
+        rgba(255,255,255,.35);
+
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer{
+
+    margin-top:19px;
+
+    color:#6d3650;
+
+    font-size:9px;
+
+    font-weight:500;
+
+    letter-spacing:3px;
+
+}
+
+
+/* ==============================
+   FIREWORK CANVAS
+============================== */
+
+canvas{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:8;
+
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:600px){
+
+    .small-title{
+
+        font-size:8px;
+
+        letter-spacing:4px;
+
+    }
+
+    h1{
+
+        font-size:62px;
+
+    }
+
+    .name{
+
+        font-size:43px;
+
+        letter-spacing:2px;
+
+    }
+
+    .description{
+
+        font-size:12px;
+
+        line-height:1.9;
+
+    }
+
+    .divider-line{
+
+        width:50px;
+
+    }
+
+}
+
+
+/* ==============================
+   REDUCE MOTION
+============================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="background"></div>
+
+<div class="light one"></div>
+
+<div class="light two"></div>
+
+
+<!-- MAIN PAGE -->
+
+<div class="page">
+
+    <div class="content">
+
+
+        <div class="top-decoration">
+
+            <span></span>
+
+            <b>✦</b>
+
+            <span></span>
+
+        </div>
+
+
+        <div class="small-title">
+
+            A SPECIAL DAY • A SPECIAL PERSON
+
+        </div>
+
+
+        <h1>
+
+            Happy Birthday
+
+        </h1>
+
+
+        <div class="name">
+
+            SARANYA SRI
+
+        </div>
+
+
+        <div class="center-heart">
+
+            <span>♥</span>
+
+        </div>
+
+
+        <div class="divider">
+
+            <div class="divider-line left"></div>
+
+            <div class="divider-symbol">✦</div>
+
+            <div class="divider-line right"></div>
+
+        </div>
+
+
+        <div class="description">
+
+            Today is a little more beautiful
+            because it belongs to someone special.
+
+            <br>
+
+            A little journey filled with
+            <strong>memories, smiles and wishes</strong>
+            is waiting for you.
+
+        </div>
+
+
+        <button
+            class="start"
+            onclick="startJourney()"
+        >
+
+            START THE JOURNEY&nbsp; →
+
+        </button>
+
+
+        <div class="footer">
+
+            MADE WITH LOVE • JUST FOR YOU
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- FIREWORKS -->
+
+<canvas id="canvas"></canvas>
+
+
+<!-- MUSIC -->
+
+<audio id="music" loop>
+
+    <source
+        src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a0f6e7.mp3"
+        type="audio/mp3"
+    >
+
+</audio>
+
+
+<script>
+
+/* =====================================
+   CREATE STARS
+===================================== */
+
+for(let i=0;i<90;i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+        Math.random()*100+"vw";
+
+    star.style.top =
+        Math.random()*100+"vh";
+
+    star.style.setProperty(
+        "--time",
+        (2+Math.random()*4)+"s"
+    );
+
+    star.style.animationDelay =
+        Math.random()*4+"s";
+
+    document.body.appendChild(star);
+
+}
+
+
+/* =====================================
+   PREMIUM FULL-SCREEN HEARTS
+===================================== */
+
+for(let i=0;i<55;i++){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+
+
+    /*
+       Different heart styles
+    */
+
+    const type =
+        Math.random();
+
+
+    if(type < .65){
+
+        heart.classList.add("soft");
+
+    }
+    else if(type < .90){
+
+        heart.classList.add("light");
+
+    }
+    else{
+
+        heart.classList.add("bright");
+
+    }
+
+
+    heart.innerHTML="♥";
+
+
+    /*
+       Random position
+    */
+
+    heart.style.left =
+        Math.random()*100+"vw";
+
+
+    /*
+       Random size
+       Mostly small hearts
+    */
+
+    heart.style.setProperty(
+        "--size",
+        (7 + Math.random()*13)+"px"
+    );
+
+
+    /*
+       Different floating speed
+    */
+
+    heart.style.setProperty(
+        "--duration",
+        (8 + Math.random()*9)+"s"
+    );
+
+
+    /*
+       Different movement
+    */
+
+    heart.style.setProperty(
+        "--move",
+        (-60 + Math.random()*120)+"px"
+    );
+
+
+    /*
+       Different opacity
+    */
+
+    heart.style.setProperty(
+        "--opacity",
+        (.25 + Math.random()*.45)
+    );
+
+
+    /*
+       Start at different times
+    */
+
+    heart.style.animationDelay =
+        (-Math.random()*15)+"s";
+
+
+    document.body.appendChild(heart);
+
+}
+
+
+/* =====================================
+   FIREWORK SYSTEM
+===================================== */
+
+const canvas =
+    document.getElementById("canvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles=[];
+
+
+function resize(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+}
+
+resize();
+
+
+window.addEventListener(
+    "resize",
+    resize
+);
+
+
+/* =====================================
+   CREATE FIREWORK
+===================================== */
+
+function createFirework(x,y){
+
+    const colors=[
+
+        "#ff4f98",
+        "#ff78b3",
+        "#ffd1e2",
+        "#ffffff",
+        "#f9a4c8"
+
+    ];
+
+
+    const color =
+        colors[
+            Math.floor(
+                Math.random()*colors.length
+            )
+        ];
+
+
+    for(let i=0;i<50;i++){
+
+        const angle =
+            Math.random()*
+            Math.PI*2;
+
+        const speed =
+            1.2+
+            Math.random()*4;
+
+
+        particles.push({
+
+            x:x,
+            y:y,
+
+            vx:
+                Math.cos(angle)*speed,
+
+            vy:
+                Math.sin(angle)*speed,
+
+            life:1,
+
+            color:color,
+
+            size:
+                1+
+                Math.random()*1.5
+
+        });
+
+    }
+
+}
+
+
+/* =====================================
+   FIREWORK ANIMATION
+===================================== */
+
+function animate(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    for(
+        let i=particles.length-1;
+        i>=0;
+        i--
+    ){
+
+        const p =
+            particles[i];
+
+
+        p.x += p.vx;
+
+        p.y += p.vy;
+
+        p.vy += .035;
+
+        p.vx *= .985;
+
+        p.vy *= .985;
+
+        p.life -= .014;
+
+
+        ctx.globalAlpha =
+            Math.max(
+                p.life,
+                0
+            );
+
+        ctx.fillStyle =
+            p.color;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fill();
+
+
+        if(p.life<=0){
+
+            particles.splice(i,1);
+
+        }
+
+    }
+
+
+    ctx.globalAlpha=1;
+
+    requestAnimationFrame(
+        animate
+    );
+
+}
+
+animate();
+
+
+/* =====================================
+   AUTOMATIC FIREWORKS
+===================================== */
+
+setInterval(()=>{
+
+    createFirework(
+
+        70+
+        Math.random()*
+        (window.innerWidth-140),
+
+        50+
+        Math.random()*250
+
+    );
+
+},3200);
+
+
+/* =====================================
+   START JOURNEY
+===================================== */
+
+function startJourney(){
+
+    const music =
+        document.getElementById("music");
+
+
+    music.play().catch(()=>{});
+
+
+    /*
+       Grand fireworks
+    */
+
+    for(let i=0;i<10;i++){
+
+        setTimeout(()=>{
+
+            createFirework(
+
+                70+
+                Math.random()*
+                (window.innerWidth-140),
+
+                50+
+                Math.random()*320
+
+            );
+
+        },i*120);
+
+    }
+
+
+    /*
+       Smooth page transition
+    */
+
+    const content =
+        document.querySelector(".content");
+
+
+    content.style.transition =
+        "1s cubic-bezier(.2,.8,.2,1)";
+
+    content.style.transform =
+        "scale(1.07)";
+
+    content.style.opacity="0";
+
+    content.style.filter=
+        "blur(8px)";
+
+
+    setTimeout(()=>{
+
+        window.location.href=
+            "quiz.html";
+
+    },1000);
+
+}
+
+</script>
+
+</body>
+
+</html>
