@@ -13,7 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+Tamil:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet">
 
-
 <style>
 
 /* =========================================
@@ -194,19 +193,13 @@ body{
 @keyframes twinkle{
 
     from{
-
         opacity:.15;
-
         transform:scale(.5);
-
     }
 
     to{
-
         opacity:1;
-
         transform:scale(1.5);
-
     }
 
 }
@@ -256,13 +249,10 @@ body{
             scale(.7);
 
         opacity:0;
-
     }
 
     12%{
-
         opacity:.55;
-
     }
 
     50%{
@@ -272,7 +262,6 @@ body{
             translateX(var(--move))
             rotate(18deg)
             scale(1);
-
     }
 
     100%{
@@ -284,7 +273,6 @@ body{
             scale(.8);
 
         opacity:0;
-
     }
 
 }
@@ -343,7 +331,6 @@ body{
             translateY(40px);
 
         filter:blur(10px);
-
     }
 
     to{
@@ -354,7 +341,6 @@ body{
             translateY(0);
 
         filter:blur(0);
-
     }
 
 }
@@ -396,7 +382,6 @@ body{
 
         0 0 25px
         rgba(190,160,255,.4);
-
 }
 
 
@@ -412,7 +397,6 @@ body{
     font-size:14px;
 
     line-height:2;
-
 }
 
 
@@ -467,7 +451,6 @@ body{
 
     transition:
         1s ease;
-
 }
 
 .chapter.show{
@@ -476,7 +459,6 @@ body{
 
     transform:
         translateY(0);
-
 }
 
 
@@ -489,7 +471,6 @@ body{
     position:relative;
 
     z-index:5;
-
 }
 
 
@@ -504,7 +485,6 @@ body{
     letter-spacing:4px;
 
     margin-bottom:15px;
-
 }
 
 
@@ -521,7 +501,6 @@ body{
     margin-bottom:25px;
 
     line-height:1.1;
-
 }
 
 
@@ -532,7 +511,6 @@ body{
     font-size:15px;
 
     line-height:2.35;
-
 }
 
 
@@ -541,7 +519,6 @@ body{
     color:#efdfff;
 
     font-weight:600;
-
 }
 
 
@@ -552,6 +529,8 @@ body{
 .visual{
 
     height:380px;
+
+    width:100%;
 
     border-radius:28px;
 
@@ -576,30 +555,33 @@ body{
     border:
         1px solid
         rgba(220,200,255,.10);
-
 }
 
 
 /* =========================================
-   MEMORY PHOTO
-   FULL PHOTO VISIBLE
+   ALL MEMORY PHOTOS
+   FULL PHOTO - NO CROP
 ========================================= */
 
 .memory-photo{
 
-    width:100%;
+    width:100% !important;
 
-    height:100%;
+    height:100% !important;
 
-    object-fit:contain;
+    max-width:100%;
 
-    object-position:center center;
+    max-height:100%;
+
+    object-fit:contain !important;
+
+    object-position:center center !important;
 
     display:block;
 
-    border-radius:18px;
-
     padding:8px;
+
+    border-radius:18px;
 
     background:
         rgba(10,8,30,.35);
@@ -607,7 +589,6 @@ body{
     transform:none !important;
 
     transition:none !important;
-
 }
 
 
@@ -617,14 +598,15 @@ body{
 
 .memory-photo.k1{
 
-    width:100%;
+    width:100% !important;
 
-    height:100%;
+    height:100% !important;
 
-    object-fit:contain;
+    object-fit:contain !important;
 
-    object-position:center center;
+    object-position:center center !important;
 
+    padding:8px;
 }
 
 
@@ -634,20 +616,20 @@ body{
 
 .memory-photo.k3{
 
-    width:100%;
+    width:100% !important;
 
-    height:100%;
+    height:100% !important;
 
-    object-fit:contain;
+    object-fit:contain !important;
 
-    object-position:center center;
+    object-position:center center !important;
 
+    padding:8px;
 }
 
 
 /* =========================================
-   PHOTO HOVER
-   DISABLED TO PREVENT CROP
+   NO IMAGE ZOOM
 ========================================= */
 
 .memory-photo:hover{
@@ -686,7 +668,6 @@ body{
         5s
         ease-in-out
         infinite;
-
 }
 
 .memory-orb:nth-child(1){
@@ -695,7 +676,6 @@ body{
     left:55px;
 
     animation-delay:0s;
-
 }
 
 .memory-orb:nth-child(2){
@@ -707,7 +687,6 @@ body{
     height:65px;
 
     animation-delay:1s;
-
 }
 
 .memory-orb:nth-child(3){
@@ -719,7 +698,6 @@ body{
     height:55px;
 
     animation-delay:2s;
-
 }
 
 @keyframes orbFloat{
@@ -731,9 +709,7 @@ body{
             scale(1.08);
 
         opacity:.8;
-
     }
-
 }
 
 
@@ -765,7 +741,6 @@ body{
         3s
         ease-in-out
         infinite;
-
 }
 
 @keyframes centerPulse{
@@ -777,9 +752,7 @@ body{
         box-shadow:
             0 0 75px
             rgba(190,150,255,.45);
-
     }
-
 }
 
 
@@ -790,6 +763,7 @@ body{
 .photo-frame{
 
     width:210px;
+
     height:260px;
 
     padding:12px;
@@ -809,7 +783,6 @@ body{
         4s
         ease-in-out
         infinite;
-
 }
 
 
@@ -820,6 +793,7 @@ body{
 .photo-inside{
 
     width:100%;
+
     height:100%;
 
     display:flex;
@@ -827,8 +801,6 @@ body{
     justify-content:center;
 
     align-items:center;
-
-    font-size:55px;
 
     background:
 
@@ -839,24 +811,27 @@ body{
         );
 
     overflow:hidden;
-
 }
 
 
 /* =========================================
-   KAVITHAI 2 PHOTO
-   FULL PHOTO VISIBLE
+   KAVITHAI 2
+   FULL PHOTO
 ========================================= */
 
 .photo-inside img{
 
-    width:100%;
+    width:100% !important;
 
-    height:100%;
+    height:100% !important;
 
-    object-fit:contain;
+    object-fit:contain !important;
 
-    object-position:center center;
+    object-position:center center !important;
+
+    max-width:100%;
+
+    max-height:100%;
 
     display:block;
 
@@ -876,9 +851,7 @@ body{
         transform:
             rotate(5deg)
             translateY(-15px);
-
     }
-
 }
 
 
@@ -898,7 +871,6 @@ body{
         15s
         linear
         infinite;
-
 }
 
 @keyframes flowerSpin{
@@ -906,7 +878,6 @@ body{
     to{
         transform:rotate(360deg);
     }
-
 }
 
 
@@ -932,11 +903,11 @@ body{
         );
 
     left:42px;
+
     top:27px;
 
     transform-origin:
         38px 53px;
-
 }
 
 .petal:nth-child(1){
@@ -970,6 +941,7 @@ body{
     border-radius:50%;
 
     left:55px;
+
     top:55px;
 
     background:#ffd86f;
@@ -977,7 +949,6 @@ body{
     box-shadow:
         0 0 30px
         rgba(255,216,111,.6);
-
 }
 
 
@@ -1003,7 +974,6 @@ body{
             #c9a7ff,
             transparent
         );
-
 }
 
 
@@ -1020,14 +990,12 @@ body{
         5s
         ease-in-out
         infinite;
-
 }
 
 .star-dream:nth-child(2){
 
     bottom:65px;
     left:15%;
-
 }
 
 .star-dream:nth-child(3){
@@ -1036,7 +1004,6 @@ body{
     left:35%;
 
     animation-delay:1s;
-
 }
 
 .star-dream:nth-child(4){
@@ -1045,7 +1012,6 @@ body{
     left:55%;
 
     animation-delay:2s;
-
 }
 
 .star-dream:nth-child(5){
@@ -1054,7 +1020,6 @@ body{
     left:73%;
 
     animation-delay:3s;
-
 }
 
 @keyframes dreamRise{
@@ -1068,9 +1033,7 @@ body{
         text-shadow:
             0 0 25px
             #d3a9ff;
-
     }
-
 }
 
 
@@ -1091,7 +1054,6 @@ body{
     text-shadow:
         0 0 25px
         rgba(210,170,255,.5);
-
 }
 
 
@@ -1132,7 +1094,6 @@ body{
         2.5s
         ease-in-out
         infinite;
-
 }
 
 @keyframes birthdayPulse{
@@ -1144,7 +1105,6 @@ body{
     50%{
         transform:scale(1.12);
     }
-
 }
 
 
@@ -1170,7 +1130,6 @@ body{
         4s
         ease-in-out
         infinite;
-
 }
 
 .balloon::after{
@@ -1188,7 +1147,6 @@ body{
     top:58px;
 
     left:50%;
-
 }
 
 .balloon.one{
@@ -1197,7 +1155,6 @@ body{
     top:70px;
 
     background:#dba8ff;
-
 }
 
 .balloon.two{
@@ -1208,7 +1165,6 @@ body{
     background:#ffb8d8;
 
     animation-delay:1s;
-
 }
 
 .balloon.three{
@@ -1219,7 +1175,6 @@ body{
     background:#a9d5ff;
 
     animation-delay:2s;
-
 }
 
 @keyframes balloonFloat{
@@ -1229,9 +1184,7 @@ body{
         transform:
             translateY(-20px)
             rotate(5deg);
-
     }
-
 }
 
 
@@ -1257,7 +1210,6 @@ body{
 
     transition:
         1s ease;
-
 }
 
 .quote.show{
@@ -1266,7 +1218,6 @@ body{
 
     transform:
         translateY(0);
-
 }
 
 
@@ -1286,7 +1237,6 @@ body{
 
     color:
         rgba(210,175,255,.25);
-
 }
 
 
@@ -1306,7 +1256,6 @@ body{
     line-height:1.4;
 
     color:#eee6ff;
-
 }
 
 
@@ -1337,7 +1286,6 @@ body{
 
     transition:
         1.5s ease;
-
 }
 
 .final.show{
@@ -1346,7 +1294,6 @@ body{
 
     transform:
         scale(1);
-
 }
 
 
@@ -1355,7 +1302,6 @@ body{
     position:relative;
 
     z-index:10;
-
 }
 
 
@@ -1370,7 +1316,6 @@ body{
     color:#cbb2ff;
 
     margin-bottom:25px;
-
 }
 
 
@@ -1404,7 +1349,6 @@ body{
         3s
         ease-in-out
         infinite alternate;
-
 }
 
 @keyframes birthdayGlow{
@@ -1418,9 +1362,7 @@ body{
 
             0 0 90px
             rgba(190,130,255,.7);
-
     }
-
 }
 
 
@@ -1447,7 +1389,6 @@ body{
         nameReveal
         2s
         ease;
-
 }
 
 @keyframes nameReveal{
@@ -1457,7 +1398,6 @@ body{
         opacity:0;
 
         letter-spacing:20px;
-
     }
 
     to{
@@ -1465,9 +1405,7 @@ body{
         opacity:1;
 
         letter-spacing:5px;
-
     }
-
 }
 
 
@@ -1483,7 +1421,6 @@ body{
     font-size:14px;
 
     line-height:2;
-
 }
 
 
@@ -1496,7 +1433,6 @@ body{
     font-size:18px;
 
     font-weight:500;
-
 }
 
 
@@ -1524,7 +1460,6 @@ body{
         var(--time)
         linear
         infinite;
-
 }
 
 @keyframes finalParticle{
@@ -1536,13 +1471,10 @@ body{
             scale(.4);
 
         opacity:0;
-
     }
 
     20%{
-
         opacity:1;
-
     }
 
     to{
@@ -1552,9 +1484,7 @@ body{
             scale(1.2);
 
         opacity:0;
-
     }
-
 }
 
 
@@ -1590,7 +1520,6 @@ body{
     cursor:pointer;
 
     transition:.4s ease;
-
 }
 
 .continue:hover{
@@ -1604,7 +1533,6 @@ body{
     box-shadow:
         0 15px 40px
         rgba(160,100,255,.25);
-
 }
 
 
@@ -1620,7 +1548,6 @@ body{
             90px
             13px
             50px;
-
     }
 
     .moon{
@@ -1630,7 +1557,6 @@ body{
 
         top:65px;
         right:7%;
-
     }
 
     .chapter{
@@ -1642,13 +1568,11 @@ body{
         grid-template-columns:1fr;
 
         gap:30px;
-
     }
 
     .chapter h2{
 
         font-size:35px;
-
     }
 
     .poem{
@@ -1656,43 +1580,47 @@ body{
         font-size:13px;
 
         line-height:2.2;
-
     }
 
     .visual{
 
         height:310px;
 
+        width:100%;
     }
 
     .header{
 
         margin-bottom:55px;
-
     }
 
     .photo-frame{
 
         width:190px;
-        height:235px;
 
+        height:235px;
     }
 
+
     /* =====================================
-       MOBILE FULL PHOTO FIX
+       MOBILE PHOTO FIX
     ===================================== */
 
     .memory-photo,
     .memory-photo.k1,
     .memory-photo.k3{
 
-        width:100%;
+        width:100% !important;
 
-        height:100%;
+        height:100% !important;
 
-        object-fit:contain;
+        max-width:100%;
 
-        object-position:center center;
+        max-height:100%;
+
+        object-fit:contain !important;
+
+        object-position:center center !important;
 
         padding:5px;
 
@@ -1703,18 +1631,38 @@ body{
     .memory-photo:hover{
 
         transform:none !important;
-
     }
 
-    .photo-inside img{
+
+    .photo-inside{
 
         width:100%;
 
         height:100%;
 
-        object-fit:contain;
+        display:flex;
 
-        object-position:center center;
+        align-items:center;
+
+        justify-content:center;
+
+        overflow:hidden;
+    }
+
+
+    .photo-inside img{
+
+        width:100% !important;
+
+        height:100% !important;
+
+        max-width:100%;
+
+        max-height:100%;
+
+        object-fit:contain !important;
+
+        object-position:center center !important;
 
     }
 
@@ -1734,7 +1682,6 @@ body{
         animation-iteration-count:1 !important;
 
         scroll-behavior:auto !important;
-
     }
 
 }
@@ -1848,7 +1795,7 @@ body{
     <div class="visual">
 
         <img
-            src="./kavithai1.jpeg"
+            src="kavithai1.jpeg"
             alt="Kavithai Memory 1"
             class="memory-photo k1"
         >
@@ -1873,7 +1820,7 @@ body{
             <div class="photo-inside">
 
                 <img
-                    src="./kavithai2.jpeg"
+                    src="kavithai2.jpeg"
                     alt="Kavithai Memory 2"
                 >
 
@@ -2014,7 +1961,7 @@ body{
     <div class="visual">
 
         <img
-            src="./kavithai3.jpeg"
+            src="kavithai3.jpeg"
             alt="Kavithai Memory 3"
             class="memory-photo k3"
         >
@@ -2035,7 +1982,7 @@ body{
     <div class="visual">
 
         <img
-            src="./kavithai4.jpeg"
+            src="kavithai4.jpeg"
             alt="Kavithai Memory 4"
             class="memory-photo"
         >
@@ -2173,7 +2120,7 @@ body{
     <div class="visual">
 
         <img
-            src="./kavithai5.jpeg"
+            src="kavithai5.jpeg"
             alt="Kavithai Memory 5"
             class="memory-photo"
         >
@@ -2207,8 +2154,6 @@ body{
 
 <section class="final reveal">
 
-
-    <!-- PARTICLES -->
 
     <div class="final-particle"></div>
     <div class="final-particle"></div>
@@ -2413,7 +2358,7 @@ const observer =
         },
 
         {
-            threshold: .15
+            threshold:.15
         }
 
     );
@@ -2454,7 +2399,7 @@ function goNext(){
         window.location.href =
             "wishes.html";
 
-    }, 1000);
+    },1000);
 
 }
 
